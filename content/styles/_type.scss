@@ -3,6 +3,11 @@ body {
     font: medium/150% Georgia, serif;
 }
 
+em {
+    font-style: italic;
+    font-size: 95%;
+}
+
 a {
     &:link,
     &:visited {
@@ -24,9 +29,6 @@ h1 {
 
 h2 {
     font-size: 150%;
-    padding-bottom: 0.5em;
-    margin-bottom: 0.5em;
-    border-bottom: 1px solid #D7D7D7;
 }
 
 h3 {
@@ -37,10 +39,23 @@ h4 {
     text-transform: uppercase;
     font-size: 85%;
     letter-spacing: 1px;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #D7D7D7;
 }
 
 p, ul, ol {
     margin: 1.5em 0;
+}
+
+pre {
+    padding: 0.5em 1.5em;
+    background: #EEE;
+    overflow: auto;
+}
+
+code {
+    font-family: "Courier New", Courier;
 }
 
 #content li {
