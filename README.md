@@ -29,7 +29,7 @@ With the latest version of ruby installed you can now install `bundler`, a ruby 
 		cd cas-docs
 		bundle install
 
-	*(If the command is not found, make sure you have the RubyGems bin folder in your path.)*
+	*(If the command is not found, make sure you have the rubygems bin folder in your path. It's going to be something like `.../ruby/gems/1.9.2/gems/bin`)*
 
 3. To build the project into a new directory called `output/`, run:
 
@@ -44,7 +44,7 @@ With the latest version of ruby installed you can now install `bundler`, a ruby 
 * `layouts` - Content gets injected into HTML layout templates via ERB, a ruby templating language
 * `lib` - Custom Ruby code that gets executed during compilation (anything goes, methods are magically available in your views and layouts)
 * `Rakefile` - Ruby build tool. Run `rake -T` to see list of available tasks (equivalent to `ant -p`).
-* `Rules` - Instructions for routes and compiling
+* `Rules` - Instructions for routes (URLs) and compiling (e.g. matching content with layouts, converting markdown to HTML, etc)
 
 *For more details, `nanoc` is really well documented [here.](http://nanoc.stoneship.org/docs/)*
 
