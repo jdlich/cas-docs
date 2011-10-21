@@ -1,5 +1,5 @@
 body {
-    padding-top: 60px;
+    padding: 60px 0;
 }
 
 #container {
@@ -7,9 +7,11 @@ body {
 }
 
 #content {
-    @include column(12);
+    @include column(14, $last: true);
+    @include append(2);
 }
 
 #navigation {
-    @include column(6);
+    @include column(7);
+    @include prepend(1);
 }
