@@ -1,3 +1,22 @@
+
+<!-- 
+
+nanoc compiles the markdown in 2 steps:
+
+  1. the markdown is converted to HTML (using kramdown, 
+     which is specified in the Rules file) 
+
+  2. the HTML partials are then injected into a
+     layout (that is again specified in the Rules 
+     file) to produce a complete HTML page 
+  
+This page captures step #1 (pre layout snapshot)
+for each chapter. The result is a single HTML page 
+containing all of the chapters which is then 
+converted to a PDF.
+     
+-->
+
 <% chapters.each do |chapter| %>
   <%= chapter.compiled_content :snapshot => :pre %>
 <% end %>
