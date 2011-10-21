@@ -15,3 +15,7 @@ end
 def styles
   select_items(%r{/styles/styles/}).first
 end
+
+def cas_logo
+  select_items(%r{/images/cas_logo/}).first
+end

@@ -8,16 +8,24 @@
   </head>
   <body>
     <div id="container">
-      <div id="navigation">
-        <h2>Chapters</h2>
-        <ul>
-          <% chapters.each do |chapter| %>
-              <li><a href="<%= chapter.path %>"><%= titleize(chapter.identifier) %></a></li>
-          <% end %>
-        </ul>
+      <div id="header">
+        <img src="<%= cas_logo.path %>" alt="CAS" />
+        <h1>CAS Documentation</h1>
       </div>
-      <div id="content">
-        <%= yield %>
+      <div class="container">
+        <div id="sidebar">
+          <ul id="navigation">
+            <% chapters.each do |chapter| %>
+                <li><a href="<%= chapter.path %>"><%= titleize(chapter.identifier) %></a></li>
+            <% end %>
+          </ul>
+        </div>
+        <div id="content">
+          <%= yield %>
+        </div>
+        <div id="footer">
+          
+        </div>
       </div>
     </div>
   </body>

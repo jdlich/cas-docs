@@ -3,20 +3,12 @@ body {
     font: medium/150% Georgia, serif;
 }
 
-em {
-    font-style: italic;
-    font-size: 95%;
-}
-
 a {
-    &:link,
-    &:visited {
-        color: #306A80;
-    }
-    
-    &:hover {
-        color: #0F425D;
-    }
+    @include link-colors(
+        $normal: #306A80,
+        $hover: #0F425D,
+        $visited: #306A80
+    );
 }
 
 h1, h2, h3, h4 {
@@ -46,6 +38,11 @@ h4 {
 
 p, ul, ol {
     margin: 1.5em 0;
+    
+    em {
+        font-style: italic;
+        font-size: 95%;
+    }
 }
 
 p {
@@ -70,15 +67,43 @@ code {
     font-family: "Courier New", Courier;
 }
 
+#header h1 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 150%;
+    color: #D7D7D7;
+
+    a {
+        @include link-colors(#D7D7D7, #FFF);
+    }
+}
+
+#navigation {
+    margin: 0;
+    margin-top: -12px;
+    
+    li {
+        position: relative;
+        padding: 18px 0;
+    }
+    
+    a {
+        color: #838383;
+        text-decoration: none;
+        position: absolute;
+        display: inline-block;
+        
+        &:hover {
+            color: #306A80;
+            border-bottom: 2px solid #306A80;
+        }
+    }
+}
+
 #content li {
     list-style-type: square;
 }
 
-// baseline
-#navigation {
-    padding-top: 10px;
-    
-    ul {
-        padding-top: 6px;
-    }
+#footer {
+    background: #F6F6F6;
 }

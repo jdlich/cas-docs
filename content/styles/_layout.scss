@@ -1,17 +1,54 @@
 body {
-    padding: 60px 0;
+    padding-bottom: 60px;
+    background: #305A6C url("../images/background.png") repeat-x top left;
 }
 
-#container {
+#container,
+.container {
     @include container;
 }
 
-#content {
-    @include column(14, $last: true);
-    @include append(2);
+.container {
+    background: #fff;
+    @include border-radius(5px);
 }
 
-#navigation {
-    @include column(7);
-    @include prepend(1);
+#header {
+    position: relative;
+    padding: 1.5em 0;
+        
+    img {
+        margin-left: 40px;
+    }
+    
+    h1 {
+        position: absolute;
+        right: 40px;
+        bottom: -6px;
+        margin-bottom: 1.5em;
+    }
+}
+
+.container {
+    padding-top: 3em;
+    
+    #content {
+        @include column(14, $last: true);
+        @include append(2);
+        padding-bottom: 3em;
+        
+        h1 {
+            margin-top: 0;
+        }
+    }
+
+    #sidebar {
+        @include column(7);
+        @include prepend(1);
+    }
+}
+
+#footer {
+    height: 3em;
+    clear: both;
 }
