@@ -17,7 +17,7 @@ The following CAS clients can be employed to integrate most proprietary and open
 
 Additionally, custom applications developed in common languages/platforms are easily supported in most cases. In almost all cases Web applications are easily integrated with CAS. Difficulty commonly arises, however, with applications built on legacy frameworks such as database procedural languages (e.g. PL/SQL) or mainframe applications. These kinds of applications frequently require creative solutions for CAS integration, but there are many such examples in community-contributed integration solutions that showcase the flexibility of CAS.
 
-_Editorial note: This was a table in the DocBook version of this documentation, but converting inline HTML tables to tables in PDF as the Markdown document build is presently implemented proves difficult, so here this content has been refactored to no longer use a table._
+<p class="editorial-note">Editorial note: This was a table in the DocBook version of this documentation, but converting inline HTML tables to tables in PDF as the Markdown document build is presently implemented proves difficult, so here this content has been refactored to no longer use a table.</p>
 
 #### Outlook Web Access / Outlook Web Application ####
 
@@ -111,19 +111,19 @@ Many enterprises have services that may be leveraged by CAS. For example, the av
 
 CAS deployment requires consideration of enterprise security concerns such as integration with IDM software, PKI, and security policy.
 
-_TODO: complete this Security Considerations section._
+<p class="todo">TODO: complete this Security Considerations section.</p>
 
 ## Availability and Capacity Planning ##
 
 Every enterprise deployment of CAS should be vitally concerned with availability and performance obtained through careful capacity planning.
 
-_TODO: complete this Availability and Capacity Planning section._
+<p class="todo">TODO: complete this Availability and Capacity Planning section.</p>
 
 ## Deployment Scenarios ##
 
 We present some popular deployment scenarios for CAS with commentary on availability and performance characteristics.
 
-_TODO: complete this Deployment Scenarios section. E.g. "Single Client/Single Server"_
+<p class="todo">TODO: complete this Deployment Scenarios section. E.g. "Single Client/Single Server"</p>
 
 
 [rubycas-client]: http://code.google.com/p/rubycas-client/

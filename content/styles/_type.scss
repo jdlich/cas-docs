@@ -48,6 +48,18 @@ p, ul, ol {
     margin: 1.5em 0;
 }
 
+p {
+    &.todo {
+        color: #c03e3e;
+        font-style: italic;
+    }
+    
+    &.editorial-note {
+        padding: 0.5em 1.5em;
+        background: #DBEED8;
+    }
+}
+
 pre {
     padding: 0.5em 1.5em;
     background: #EEE;

@@ -1,6 +1,6 @@
 # Installation #
 
-_TODO! Alas, this chapter is not yet written.  You should help write it._
+<p class="todo">TODO! Alas, this chapter is not yet written.  You should help write it.</p>
 
 _Intended scope of chapter: complete walk-through / documentation of installing CAS .war as it ships in a CAS server distribution, *without* using Maven._
 

@@ -4,7 +4,7 @@ Configuration management is how you're going to manage your CAS implementation f
 
 ## Maven War Overlay ##
 
-_TODO: Document Maven Overlay, inspired by and merging in the content of [best practices](https://wiki.jasig.org/display/CASUM/Best+Practice+-+Setting+Up+CAS+Locally+using+the+Maven2+WAR+Overlay+Method)._
+<p class="todo">TODO: Document Maven Overlay, inspired by and merging in the content from <a href="https://wiki.jasig.org/display/CASUM/Best+Practice+-+Setting+Up+CAS+Locally+using+the+Maven2+WAR+Overlay+Method">this best practice page</a>.</p>
 
 ### Assumptions ###
 
@@ -112,4 +112,4 @@ You CAS implementation's `pom.xml` describes your local institution's CAS implem
 
 _The rest of the documentation..._
 
-_TODO! Here goes the meat of all the really useful and Maven-overlay-specific documentation!_
+<p class="todo">TODO! Here goes the meat of all the really useful and Maven-overlay-specific documentation!</p>

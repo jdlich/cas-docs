@@ -1,6 +1,8 @@
 # Features
 
-This chapter is intended to help you understand what features the CAS server product can provide. A subsequent chapter _Editorial note: alas, that subsequent chapter is still to be written!_ discusses configuration of these features -- this chapter is just the tour of what there is to configure.
+This chapter is intended to help you understand what features the CAS server product can provide. A subsequent chapter discusses configuration of these features -- this chapter is just the tour of what there is to configure.
+
+<p class="editorial-note">Editorial note: alas, that subsequent chapter is still to be written!</p>
 
 (There's also a [four-page PDF][cas-product-brochure] that may meet your glossy brochure needs.)
 
