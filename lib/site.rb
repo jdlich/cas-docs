@@ -1,4 +1,6 @@
 
+CAS_VERSION = "3.4.1"
+
 def select_items regex
   @items.select { |i| i.identifier =~ regex }
 end
