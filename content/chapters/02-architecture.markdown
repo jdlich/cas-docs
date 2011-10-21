@@ -147,7 +147,7 @@ The TicketRegistry component is a ticket storage abstraction layer. CAS supports
 
 The CAS login workflow is not an interface per se, but is a workflow implemented in Spring WebFlow that can be customized to support novel use cases. Customizing logical transitions, decision  points, and start/end states is straightforward and can generally be done by editing XML, while defining new actions typically requires development of actions in Java.
               
-(See also the recording of Adam Rybicki's presentation at the 2010 Jasig conference on [Extending CAS Using Spring Web Flow] )
+(See also the recording of Adam Rybicki's presentation at the 2010 Jasig conference on [Extending CAS Using Spring Web Flow])
 
 
 [CAS Protocol document]: http://www.jasig.org/cas/protocol

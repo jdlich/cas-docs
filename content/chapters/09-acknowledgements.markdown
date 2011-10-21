@@ -17,6 +17,4 @@ The Jasig CAS project gratefully acknowledges the contributions of
 
 The use of Markdown was inspired by and the starting point for the scripts to build that markdown to PDF are from [Pro Git].
 
-
-
 [Pro Git]: https://github.com/progit/progit

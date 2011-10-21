@@ -24,71 +24,67 @@ Maven 1 just won't work with the Maven overlay approach (and is pretty old techn
 
 Your environment may already have Maven installed. For instance, Macintosh OS X typically includes a Maven distribution by default. You might want to use or upgrade that rather than install a new version of Maven. Then again, you might want the control of downloading and installing a specific version.
 
-In any case, one way to get Maven is to download it from the Maven website. The latest version of Maven 2 as of this writing is Maven 2.2.1. You could install it to somewhere like _/opt/apache-maven-2.2.1_ . Life will be easier if you choose a path that does not include spaces in the names of its directories. Regardless of where you install Maven, this documentation refers to this path as $MAVEN_HOME.
+In any case, one way to get Maven is to download it from the Maven website. The latest version of Maven 2 as of this writing is Maven 2.2.1. You could install it to somewhere like `/opt/apache-maven-2.2.1`. Life will be easier if you choose a path that does not include spaces in the names of its directories. Regardless of where you install Maven, this documentation refers to this path as `$MAVEN_HOME`.
 
 #### Setting Maven-related environment variables and adding the executable to the Path... ####
 
-Once you've downloaded and expanded the Maven 2 binary, or decided to use a version of Maven 2 that shipped in your operating system, you'll need to expose a M2_HOME environment variable. You may need to set other Maven options as an environment variable, and you may be happier if you put Maven on your Path so you can execute it easily from the command line.
+Once you've downloaded and expanded the Maven 2 binary, or decided to use a version of Maven 2 that shipped in your operating system, you'll need to expose an `M2_HOME` environment variable. You may need to set other Maven options as an environment variable, and you may be happier if you add Maven to your path so you can execute it easily from the command line.
 
 #### ...on Unix-like Operating Systems #### 
 
 These instructions work in general on Mac OS X and on Linux variants. Best practices and conventions for permanently setting environment variables will vary depending upon the detauls of your environment.
 
-In a command terminal, add the M2_HOME environment variable, e.g. 
+In a command terminal, add the `M2_HOME` environment variable, e.g. 
 
     export M2_HOME=$MAVEN_HOME 
 
-. Recall that $MAVEN_HOME is the placeholder in this documentation for the path to wherever your Maven 2 installation lives.
+Recall that `$MAVEN_HOME` is the placeholder in this documentation for the path to wherever your Maven 2 installation lives.
 
-Add the M2 environment variable, e.g. 
+Add the `M2` environment variable, e.g. 
 
     export M2=$M2_HOME/bin 
-.
 
-Optionally, add the MAVEN\_OPTS environment variable to specify JVM properties, e.g. 
+Optionally, add the `MAVEN_OPTS` environment variable to specify JVM properties, e.g. 
 
   export MAVEN_OPTS="-Xms256m -Xmx512m"
 
-. This environment variable can supply extra options to Maven and to the Java Virtual Machine in which Maven will run.
+This environment variable can supply extra options to Maven and to the Java Virtual Machine in which Maven will run.
 
-Add the M2 environment variable to your path, e.g. 
+Add the `M2` environment variable to your path, e.g.
+ 
   export PATH=$M2:PATH.
 
-Ensure that the JAVA\_HOME environment variable is set to the location of your JDK, e.g. 
-    export JAVA_HOME=/usr/java/jdk1.5.0_02 
-and that $JAVA_HOME/bin is in your PATH environment variable.
+Ensure that the `JAVA_HOME` environment variable is set to the location of your JDK, e.g.
+ 
+    export JAVA_HOME=/usr/java/jdk1.5.0_02
+    
+and that `$JAVA_HOME/bin` is in your `PATH` environment variable. 
 
-Run 
-    mvn --version 
+To verify that Maven 2 is correctly installed, run:
 
-to verify that Maven 2 is correctly installed.
+    mvn --version
 
-Example result of running _mvn --version_ :
+Example result of running `mvn --version`:
 
-    you@hostname:~$ mvn --version Apache Maven 2.2.1 (rdebian-4) Java version: 1.6.0_26 Java home: \
-    /usr/lib/jvm/java-6-sun-1.6.0.26/jre Default locale: en_US, platform encoding: \
-    UTF-8 OS name: "linux" version: "2.6.38-11-generic" arch: "amd64" Family: "unix" 
-    you@hostname:~$
-
+    Apache Maven 2.2.1 (rdebian-4)  
+    Java version: 1.6.0_26  
+    Java home: /usr/lib/jvm/java-6-sun-1.6.0.26/jre  
+    Default locale: en_US, platform encoding: UTF-8  
+    OS name: "linux", version: "2.6.38-11-generic", arch: "amd64", family: "unix"
 
 #### ...on Windows ####
 
-Add the M2\_HOME environment variable by opening the system properties (WinKey + Pause), selecting the "Advanced" tab, clicking the "Environment Variables" button, then adding the M2\_HOME variable to the set of user variables with value $MAVEN_HOME (recall that $MAVEN_HOME is the placeholder in this documentation for the path to your Maven installation, something like /opt/apache-maven-2.2.1 . Be sure to omit any quotation marks around the path even if it includes spaces. The value of M2\_HOME should not end with a \ character -- if you're using Maven 2.0.9 or earlier, it must not end with a slash character.
+Add the `M2\_HOME` environment variable by opening the system properties (WinKey + Pause), selecting the "Advanced" tab, clicking the "Environment Variables" button, then adding the `M2\_HOME` variable to the set of user variables with value `$MAVEN\_HOME` (recall that `$MAVEN_HOME` is the placeholder in this documentation for the path to your Maven installation, something like `/opt/apache-maven-2.2.1`. Be sure to omit any quotation marks around the path even if it includes spaces. The value of `M2\_HOME` should not end with a "\" character -- if you're using Maven 2.0.9 or earlier, it must not end with a slash character.
 
-In the same dialog, add an environment variable M2 with value 
-    %M2_HOME%\\bin 
-.
+In the same dialog, add an environment variable `M2` with value `%M2_HOME%\\bin` 
 
-Optionally, in the same dialog, add the MAVEN\_OPTS environment variable in the user variables to specify JVM properties for use with Maven. For example, the value "-Xms256m -Xmx512m" instructs Maven to use at least 256 megabytes and at most 512 megabytes of memory. More ambitious usages of Maven can require more than the default allocation of memory. In general, the MAVEN\_OPTS environment variable supplies extra JVM configuration to Maven.
+Optionally, in the same dialog, add the `MAVEN\_OPTS` environment variable in the user variables to specify JVM properties for use with Maven. For example, the value `-Xms256m -Xmx512m` instructs Maven to use at least 256 megabytes and at most 512 megabytes of memory. More ambitious usages of Maven can require more than the default allocation of memory. In general, the `MAVEN\_OPTS` environment variable supplies extra JVM configuration to Maven.
 
-In the same dialog, create or update a Path environment variable in the user variables and prepend the value "%M2%" to make the Maven executable available ubiquitously on the command line.
+In the same dialog, create or update a Path environment variable in the user variables and prepend the value `%M2%` to make the Maven executable available ubiquitously on the command line.
 
-In the same dialog, ensure that the JAVA_HOME exists in your user variables or in the system variables and is set to the location of your JDK, e.g. "C:\\Program Files\\Java\\jdk1.5.0\\_02" and that "%JAVA_HOME%\\bin" is in the Path environment variable.
+In the same dialog, ensure that the JAVA_HOME exists in your user variables or in the system variables and is set to the location of your JDK, e.g. `C:\\Program Files\\Java\\jdk1.5.0\\_02` and that `%JAVA_HOME%\\bin` is in the `PATH` environment variable.
 
-Open a new command prompt (Winkey + R then type "cmd" and press Enter) and run "mvn --version" to verify that Maven is correctly installed and runnable from the command line.
-
-
-
+Open a new command prompt (`Winkey + R` then type `cmd` and press `Enter`) and run `mvn --version` to verify that Maven is correctly installed and runnable from the command line.
 
 ### Setting up your local Maven-Overlay-using CAS project ###
 
@@ -104,15 +100,15 @@ The first step therefore is to create this directory, your local workspace. This
 
 You can put this directory anywhere you like. If you need somewhere, /opt/work is a good spot.
 
-In any case, this documentation will refer to this workspace directry as $WORKSPACE , and we won't refer to it much, because the very next step is to create a directory within it where all the real work will happen.
+In any case, this documentation will refer to this workspace directry as `$WORKSPACE`, and we won't refer to it much, because the very next step is to create a directory within it where all the real work will happen.
 
-Within $WORKSPACE, add a directory for your local organization's CAS project, that is, the directory for the project of your local CAS configurations and customizations. You might call this local-cas, yielding a path $WORKSPACE/local-cas . This documentation will refer to this directory as your $PROJECT\_HOME .
+Within `$WORKSPACE`, add a directory for your local organization's CAS project, that is, the directory for the project of your local CAS configurations and customizations. You might call this local-cas, yielding a path `$WORKSPACE/local-cas`. This documentation will refer to this directory as your `$PROJECT\_HOME`.
 
-Into your $PROJECT\_HOME directory will go two things: a special file named pom.xml that describes your local CAS implementation as a Maven Overlay war project, and all of the changed and new files that make your local implementation differ from the CAS .war as delivered by the CAS open source project.
+Into your `$PROJECT\_HOME` directory will go two things: a special file named `pom.xml` that describes your local CAS implementation as a Maven Overlay war project, and all of the changed and new files that make your local implementation differ from the CAS `war` as delivered by the CAS open source project.
 
 #### Your pom.xml ####
 
-You CAS implementation's pom.xml describes your local institution's CAS implementation as a Maven project. This pom.xml. should go directly in your $PROJECT\_HOME directory, as in $PROJECT\_HOME/pom.xml
+You CAS implementation's `pom.xml` describes your local institution's CAS implementation as a Maven project. This pom.xml. should go directly in your `$PROJECT\_HOME` directory, as in `$PROJECT\_HOME/pom.xml`
 
 _The rest of the documentation..._
 

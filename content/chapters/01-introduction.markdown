@@ -55,8 +55,6 @@ CAS approaches authorization from the perspective that authorization is the resp
 
 CAS is supported by a community of developers and users via a variety of means.
 
-### Community Support Channels ###
-
 * Product documentation (like this manual)
 * Real-time user support via the <cas-user@lists.jasig.org> mailing list
 * Discussion via Internet Relay Chat (IRC) in the #jasig-cas channel on irc.freenode.net .  Note that while several CAS developers and adopters typically hang out in this IRC chat room, the project has no commitment to 24x7 support via that mechanism and you may be better off directing your question to the cas-user@ email list.
