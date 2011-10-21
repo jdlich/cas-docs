@@ -1,0 +1,15 @@
+body {
+    padding-top: 60px;
+}
+
+#container {
+    @include container;
+}
+
+#content {
+    @include column(12);
+}
+
+#navigation {
+    @include column(6);
+}

@@ -1,0 +1,8 @@
+source "http://rubygems.org"
+source "http://gemcutter.org/"
+source "http://gems.github.com"
+gem "nanoc", "3.2.2"
+gem "pdfkit", "~>0.5.2"
+gem "kramdown", "~>0.13.3"
+gem "compass", "~>0.11.5"
+gem "chunky_png", "~>1.2.5"

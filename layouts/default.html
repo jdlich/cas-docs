@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CAS Documentation</title>
+    
+    <link rel="stylesheet" href="/styles.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="navigation">
+        <h2>Chapters</h2>
+        <ul>
+          <% chapters.each do |chapter| %>
+              <li><a href="<%= chapter.path %>"><%= titleize(chapter.identifier) %></a></li>
+          <% end %>
+        </ul>
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
