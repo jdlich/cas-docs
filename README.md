@@ -16,9 +16,7 @@ With the latest version of ruby installed you can now install `bundler`, a ruby 
 
 ## Installing wkhtmltopdf
 
-`wkhtmltopdf` (i.e. webkit html to pdf) is a simple shell utility to convert HTML to PDF using WebKit and QT. 
-
-Installation instructions are on GitHub [here](https://github.com/jdpace/PDFKit/wiki/Installing-WKHTMLTOPDF)
+`wkhtmltopdf` (i.e. webkit html to pdf) is a simple shell utility to convert HTML to PDF using WebKit and QT. [Click here](https://github.com/jdpace/PDFKit/wiki/Installing-WKHTMLTOPDF) for installation instructions.
 
 ## Getting Started
 
