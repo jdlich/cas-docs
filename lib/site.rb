@@ -4,7 +4,11 @@ CAS_VERSION = "3.4.1"
 ### View helpers
 
 def chapters
-  select_items %r{^/chapters/}
+  @items.select { |i| i.identifier =~ %r{^/chapters/} }
+end
+
+def first_chapter
+  find_item %r{^/chapters/01.+/}
 end
 
 def titleize(identifier)
@@ -13,15 +17,15 @@ def titleize(identifier)
 end
 
 def styles
-  select_items(%r{/styles/styles/}).first
+  find_item %r{/styles/styles/}
 end
 
 def cas_logo
-  select_items(%r{/images/cas_logo/}).first
+  find_item %r{/images/cas_logo/}
 end
 
 ### Private (sort of)
 
-def select_items(regex)
-  @items.select { |i| i.identifier =~ regex }
+def find_item(regex)
+  @items.find { |i| i.identifier =~ regex }
 end
