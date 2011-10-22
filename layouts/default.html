@@ -1,31 +1,35 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>CAS Documentation</title>
-    
     <link rel="stylesheet" href="<%= styles.path %>" type="text/css" media="screen" />
   </head>
   <body>
     <div id="container">
-      <div id="header">
-        <img src="<%= cas_logo.path %>" alt="CAS" />
-        <h1>CAS Documentation <a href="https://github.com/jdlich/cas-docs" title="Source on GitHub">v<%= CAS_VERSION %></a></h1>
-      </div>
-      <div class="container">
-        <div id="sidebar">
-          <ul id="navigation">
-            <% chapters.each do |chapter| %>
-                <li><a href="<%= chapter.path %>"><%= titleize(chapter.identifier) %></a></li>
-            <% end %>
-          </ul>
+      <div id="sidebar">
+        
+        <!-- Header -->
+        <div id="header">
+          <img src="<%= cas_logo.path %>" alt="CAS" />
+          <p><a href="https://github.com/jdlich/cas-docs" title="Source on GitHub">Documentation v<%= CAS_VERSION %></a></p>
         </div>
+        
+        <!-- Navigation -->
+        <ul id="navigation">
+          <% chapters.each do |chapter| %>
+              <li><a href="<%= chapter.path %>"><%= titleize(chapter.identifier) %></a></li>
+          <% end %>
+        </ul>
+        
+      </div>
+      <div id="main">
+        
+        <!-- Content -->
         <div id="content">
           <%= yield %>
         </div>
-        <div id="footer">
-          
-        </div>
+        
       </div>
     </div>
   </body>

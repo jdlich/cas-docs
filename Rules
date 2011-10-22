@@ -42,7 +42,7 @@ route '/styles/styles/' do
 end
 
 route '/pdf/' do
-  '/cas-documentation.pdf'
+  "/CAS-Documentation-v#{CAS_VERSION}.pdf"
 end
 
 route '*' do

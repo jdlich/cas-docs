@@ -1,54 +1,37 @@
-body {
-    padding-bottom: 60px;
-    background: #305A6C url("../images/background.png") repeat-x top left;
+body, html {
+    height: 100%;
 }
 
-#container,
-.container {
-    @include container;
-}
-
-.container {
-    background: #fff;
-    @include border-radius(5px);
-}
-
-#header {
+#container {
     position: relative;
-    padding: 1.5em 0;
-        
-    img {
-        margin-left: 40px;
+}
+
+#sidebar {
+    background: #305A6C url("../images/background.png") repeat-x top left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 3em;
+    padding-left: 40px;
+    width: 230px;
+    overflow: auto;
+    min-height: 100%;
+    
+    #navigation {
+        padding-top: 1.5em;
     }
+}
+
+#main {
+    background: #fff;
+    margin-left: 270px;
+}
+
+#content {
+    padding: 3em;
+    width: 550px;
     
     h1 {
-        position: absolute;
-        right: 40px;
-        bottom: -6px;
-        margin-bottom: 1.5em;
+        margin-top: 0;
     }
-}
-
-.container {
-    padding-top: 3em;
-    
-    #content {
-        @include column(14, $last: true);
-        @include append(2);
-        padding-bottom: 3em;
-        
-        h1 {
-            margin-top: 0;
-        }
-    }
-
-    #sidebar {
-        @include column(7);
-        @include prepend(1);
-    }
-}
-
-#footer {
-    height: 3em;
-    clear: both;
 }

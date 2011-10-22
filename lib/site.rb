@@ -1,9 +1,7 @@
 
 CAS_VERSION = "3.4.1"
 
-def select_items regex
-  @items.select { |i| i.identifier =~ regex }
-end
+### View helpers
 
 def chapters
   select_items %r{^/chapters/}
@@ -20,4 +18,10 @@ end
 
 def cas_logo
   select_items(%r{/images/cas_logo/}).first
+end
+
+### Private (sort of)
+
+def select_items(regex)
+  @items.select { |i| i.identifier =~ regex }
 end
