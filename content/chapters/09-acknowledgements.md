@@ -13,7 +13,7 @@ The Jasig CAS project gratefully acknowledges the contributions of
 * Adam Rybicki
 * Bill Thompson
 
-## Source is Available on GitHub ##
+## About this Site ##
 
 This website is generated using [nanoc][], a static site compiler written in Ruby. The [source code][] is available on GitHub.
 
