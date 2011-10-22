@@ -1,5 +1,3 @@
-require 'pdfkit'
-
 class PDFKitFilter < Nanoc3::Filter
   
   identifier :pdfkit

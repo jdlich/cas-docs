@@ -96,9 +96,9 @@ First we'll configure the URLs associated with the services management UI and au
 
 ### Configuring URLs to the Services Management UI in cas.properties ###
 
-<p class="tip">TIP: If your CAS server is deployed to `http://localhost:8080` (as in, say, you've naively deployed CAS to an unconfigured Tomcat instance installed on your local computer) and you're not yet using SSL, then you need not change any of the _cas.properties_ properties.</p>
+TIP: If your CAS server is deployed to `http://localhost:8080` (as in, say, you've naively deployed CAS to an unconfigured Tomcat instance installed on your local computer) and you're not yet using SSL, then you need not change any of the `cas.properties` properties.
 
-The file _cas.properties_ includes several properties that configure CAS to know the URL to its own services management feature and to its own CAS server endpoints . These URLs configure the use of Spring Security to secure access to the administrative panes.
+The file `cas.properties` includes several properties that configure CAS to know the URL to its own services management feature and to its own CAS server endpoints . These URLs configure the use of Spring Security to secure access to the administrative panes.
 
 `server.prefix` was introduced in CAS 3.4.10 and specifies the protocol (`http` or `https`), hostname, non-default port, and path to the CAS server web application. It is a convenience property so that you can update this in one line rather than having to tweak the `cas.securityContext.serviceProperties.service`, `cas.securityContext.casProcessingFilterEntryPoint.loginUrl`, and `cas.securityContext.casProxyTicketValidator.casValidate` properties individually. If you're using an older version of CAS 3.4, then you should upgrade, but in the meantime, no worries, you can configure those other properties individually or simply add the `server.prefix` property. If you're using CAS 3.4.10, great, set this one `server.prefix` property to have a value like `https://mycasserver.com:8993/caswebapp`. `http://localhost:8080/cas` is what you want for the simplest possible example of trying out CAS in an unconfigured Tomcat on your laptop, and is the default value.
 
@@ -147,7 +147,7 @@ In deployerConfigContext.xml, you can enumerate users allowed to log in to the S
                     
 You can list as many authorized users as you like. The password attribute isn't used because by default you're configuring a set of authorized users who will authenticate using CAS. (Yes, by default, administrators use CAS to authenticate to the administrative panels in CAS.) However, this is using Spring Security, so you can replace more of this wiring and instead configure Spring Security to authenticate users in some other way.
 
-The services registry has only one role, but the key of that role is configured in cas.properties, so you can use something other than ROLE_ADMIN if you want -- that might make sense if you reconfigured Spring Security to use an external user details service that has more roles in it beyond the single in-or-out role used for the CAS Services Registry.
+The services registry has only one role, but the key of that role is configured in `cas.properties`, so you can use something other than `ROLE_ADMIN` if you want -- that might make sense if you reconfigured Spring Security to use an external user details service that has more roles in it beyond the single in-or-out role used for the CAS Services Registry.
 
 Usernames enumerated in the user details service with authority `ROLE_ADMIN` will be able to access the Services Registry interface. All other users will be denied access.
 
@@ -167,7 +167,7 @@ The front page of the services registry lists the existing service registrations
 
 You can delete an existing service registration from this summary screen.
 
-<p class="warning">WARNING: There's no undo. If you delete a registration, it's gone.</p>
+WARNING: There's no undo. If you delete a registration, it's gone.
 
 #### Registering a New Service #### 
 

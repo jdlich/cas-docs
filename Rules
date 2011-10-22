@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 require 'compass'
+require 'pdfkit'
+require 'nokogiri'
 Compass.add_project_configuration('config.rb')
 
 ### Compile
@@ -14,11 +16,12 @@ end
 
 compile '/pdf/' do
   filter :erb
-  filter :pdfkit
+  # filter :pdfkit
 end
 
 compile '/chapters/*' do
   filter :kramdown
+  filter :note_classes
   layout 'default'
   filter :relativize_paths, :type => :html
 end

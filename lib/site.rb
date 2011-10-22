@@ -3,8 +3,6 @@ CAS_VERSION = "3.4.1"
 
 ### View helpers
 
-require 'nokogiri'
-
 def chapters
   @items.select { |i| i.identifier =~ %r{^/chapters/} }
 end
