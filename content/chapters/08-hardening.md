@@ -32,7 +32,7 @@ However, some versions of the phpCAS client library require the `/proxyValidate`
         
 This will have the effect of making your `/proxyValidate` endpoint behave as `/serviceValidate` and reject all proxy tickets.
 
-<p class="editorial-note">Editorial note: Wouldn't it be even better to disable the /proxy endpoint so that no service can acquire a PGT?  Yes, yes it would. This tip needs updated to do that instead.</p>
+<p class="note">Editorial note: Wouldn't it be even better to disable the /proxy endpoint so that no service can acquire a PGT?  Yes, yes it would. This tip needs updated to do that instead.</p>
 
 ## Configure Java DNS refresh intervals ##
 
@@ -54,6 +54,6 @@ Set this to whatever saner timeout you'd like, in milliseconds, being appropriat
 
 (See also the [JavaDoc for Java 6 InetAddress].)
 
-<p class="editorial-note">Editorial note: Does this belong in the Hardening chapter, or would this go into the high availability chapter when discussing DNS role in HA?</p>
+<p class="note">Editorial note: Does this belong in the Hardening chapter, or would this go into the high availability chapter when discussing DNS role in HA?</p>
 
 [JavaDoc for Java 6 InetAddress]: http://download.oracle.com/javase/6/docs/api/java/net/InetAddress.html
