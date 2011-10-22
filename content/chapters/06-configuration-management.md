@@ -10,7 +10,7 @@ Configuration management is how you're going to manage your CAS implementation f
 
 This documentation on how to use Maven Overlay assumes that you already understand how to install CAS and what it requires. It assumes you've already got Java and a servlet container and have done something sensible about SSL certificates and so forth. That is, the scope of this chapter is exclusively what's special about the Maven Overlay approach.
 
-While using Maven Overlay is highly recommended, don't start here! CAS ships a perfectly reasonable ready-to-deploy .war file for trying out CAS on your local computer running it on localhost. Start there before building your own custom CAS .war using this Maven overlay approach.
+While using Maven Overlay is highly recommended, don't start here! CAS ships a perfectly reasonable ready-to-deploy `war` file for trying out CAS on your local computer running it on localhost. Start there before building your own custom CAS `war` using this Maven overlay approach.
 
 ### Installing Maven 2 ###
 
