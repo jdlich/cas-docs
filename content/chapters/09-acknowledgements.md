@@ -13,8 +13,10 @@ The Jasig CAS project gratefully acknowledges the contributions of
 * Adam Rybicki
 * Bill Thompson
 
-## Inspired by Pro Git ##
+## Source is Available on GitHub ##
 
-The use of Markdown was inspired by and the starting point for the scripts to build that markdown to PDF are from [Pro Git].
+This website is generated using [nanoc][], a static site compiler written in Ruby. The [source code][] is available on GitHub.
 
-[Pro Git]: https://github.com/progit/progit
+[nanoc]: http://nanoc.stoneship.org/
+[source code]: http://github.com/jdlich/cas-docs
+
