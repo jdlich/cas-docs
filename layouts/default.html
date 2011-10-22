@@ -17,6 +17,7 @@
         
         <!-- Navigation -->
         <ul id="navigation">
+          <li><a href="<%= table_of_contents.path %>">Table of Contents</a></li>
           <% chapters.each do |chapter| %>
               <li><a href="<%= chapter.path %>"><%= titleize(chapter.identifier) %></a></li>
           <% end %>

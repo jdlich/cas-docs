@@ -18,5 +18,5 @@ converted to a PDF.
 -->
 
 <% chapters.each do |chapter| %>
-  <%= chapter.compiled_content :snapshot => :pre %>
+  <%= snapshot(chapter) %>
 <% end %>

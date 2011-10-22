@@ -1,0 +1,10 @@
+<h1>Table of Contents</h1>
+
+<% chapters.each do |chapter| %>
+  <h3><%= titleize(chapter.identifier) %></h3>
+  <ul>
+    <% headers(snapshot(chapter), "h3").each do |header| %>
+      <li><a href="<%= chapter.path %>/index.html#<%= flatten(header.text) %>"><%= header.text %></a></li>
+    <% end %>
+  </ul>
+<% end %>

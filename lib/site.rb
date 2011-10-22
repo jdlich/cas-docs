@@ -3,6 +3,8 @@ CAS_VERSION = "3.4.1"
 
 ### View helpers
 
+require 'nokogiri'
+
 def chapters
   @items.select { |i| i.identifier =~ %r{^/chapters/} }
 end
@@ -16,6 +18,18 @@ def titleize(identifier)
   filename.split("-")[1..-1].map { |w| w.capitalize }.join(" ")
 end
 
+def table_of_contents
+  find_item %r{^/table_of_contents/}
+end
+
+def headers(html, tag)
+  Nokogiri::HTML(html).css(tag)
+end
+
+def snapshot(item)
+  item.compiled_content :snapshot => :pre
+end
+
 def styles
   find_item %r{/styles/styles/}
 end
@@ -24,7 +38,11 @@ def cas_logo
   find_item %r{/images/cas_logo/}
 end
 
-### Private (sort of)
+def flatten(string)
+  string.downcase.split(" ").map { |w| w.gsub(/[^a-zA-Z\-]/, '') }.join("-")
+end
+
+### Private
 
 def find_item(regex)
   @items.find { |i| i.identifier =~ regex }
