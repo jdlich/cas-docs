@@ -96,7 +96,7 @@ First we'll configure the URLs associated with the services management UI and au
 
 ### Configuring URLs to the Services Management UI in cas.properties ###
 
-__Tip__: If your CAS server is deployed to `http://localhost:8080` (as in, say, you've naively deployed CAS to an unconfigured Tomcat instance installed on your local computer) and you're not yet using SSL, then you need not change any of the _cas.properties_ properties.
+<p class="tip">TIP: If your CAS server is deployed to `http://localhost:8080` (as in, say, you've naively deployed CAS to an unconfigured Tomcat instance installed on your local computer) and you're not yet using SSL, then you need not change any of the _cas.properties_ properties.</p>
 
 The file _cas.properties_ includes several properties that configure CAS to know the URL to its own services management feature and to its own CAS server endpoints . These URLs configure the use of Spring Security to secure access to the administrative panes.
 
@@ -167,7 +167,7 @@ The front page of the services registry lists the existing service registrations
 
 You can delete an existing service registration from this summary screen.
 
-__There's no undo.__ If you delete a registration, it's gone.
+<p class="warning">WARNING: There's no undo. If you delete a registration, it's gone.</p>
 
 #### Registering a New Service #### 
 

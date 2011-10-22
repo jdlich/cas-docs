@@ -81,7 +81,7 @@ In order to facilitate discussion of configuration and deployment in following c
 
 CAS supports two distinct notions of authentication, user and service authentication. For the purposes of this user manual, "authentication" means user authentication where a user presents some credential(s) for CAS to validate. The service authentication process will be referred to as an "access." There are a number of components that deal with user authentication that are described in detail in the following sections. 
 
-<p class="note">Editorial note: Does this documentation consistently use 'access' in this way?  May need to keep an eye on this.</p>
+<p class="note">EDITOR NOTE: Does this documentation consistently use 'access' in this way?  May need to keep an eye on this.</p>
 
 #### Principal Name Transformer ####
 

@@ -47,13 +47,21 @@ p, ul, ol {
 
 p {
     &.todo {
-        color: #c03e3e;
+        color: #c0943e;
         font-style: italic;
     }
-    
     &.note {
         padding: 0.5em 1.5em;
+        background: #efe2c9;
+    }
+    &.tip {
+        padding: 0.5em 1.5em;
         background: #DBEED8;
+    }
+    &.warning {
+        padding: 0.5em 1.5em;
+        background: #9d2424;
+        color: #f1f1f1;
     }
 }
 
