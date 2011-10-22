@@ -2,7 +2,7 @@
 
 The CAS architecture can be described in terms of system components including the clients and server that communicate via supported protocols.
 
-![architecture diagram](media/architecture.png)
+![architecture diagram](../../images/docs/architecture.png)
 
 ## System Components ##
 The CAS server and clients comprise the two physical components of the CAS system architecture that communicate by means of various protocols.

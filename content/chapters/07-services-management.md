@@ -159,7 +159,7 @@ The CAS Services Management UI is available at the path `/services/` within your
 
 Once you reach the Services Registry, it looks like this:
 
-![Managing registered services](media/services_edit.jpg)
+![Managing registered services](../../images/docs/services_edit.jpg)
 
 The front page of the services registry lists the existing service registrations, providing summary information about these registrations and controls to edit them.
 
@@ -173,7 +173,7 @@ WARNING: There's no undo. If you delete a registration, it's gone.
 
 You can register a new service.
 
-![Registering a new service](media/add_service_registration_1024_872.jpg)
+![Registering a new service](../../images/docs/services_add.jpg)
 
 #### Editing an Existing Service Registration #### 
 

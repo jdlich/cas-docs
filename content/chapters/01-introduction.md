@@ -1,7 +1,5 @@
 # Introduction #
 
-![Big picture diagram](media/sso-diagram.png)
-
 CAS is a multiprotocol Web single sign-on (SSO) product composed of a single logical server component that services authentication requests from multiple CAS clients that communicate via one or more supported protocols. The CAS server delegates authentication decisions to any number of supported authentication mechanisms including LDAP/Active Directory, Kerberos, and RDBMS. The hallmark of CAS is ease of integration and extension in support of a wide variety of environments. In addition to supporting a large number of technologies out of the box, the well-documented API extension points have enabled deployers to develop custom components to support novel use cases not supported by default.
 
 ## Features ##
@@ -11,6 +9,10 @@ CAS has a number of features that distinguish it from other SSO products:
 ### Single Sign-On (SSO) Implementation ###
 
 Unlike many SSO products, CAS does not use shared cookies to authenticate to services within the SSO domain. The CAS implementation uses a secure SSO session identifier (ticket-granting ticket in CAS protocol parlance), shared exclusively with the CAS server, to generate one-time-use credentials (service tickets in CAS protocol parlance) that are used to access services within the SSO domain. Passing the "master key" session identifier exclusively between the user's browser and CAS server dramatically limits the potential for man-in-the-middle attacks on the session identifier. CAS benefits from increased security in this regard over shared cookie strategies.
+
+### SSO Diagram ###
+
+![Big picture diagram](../../images/docs/sso_diagram.png)
 
 ### Integration ###
 

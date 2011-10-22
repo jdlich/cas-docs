@@ -23,7 +23,7 @@ class NoteClasses < Nanoc3::Filter
     doc = Nokogiri::HTML(content)
     doc.css("p").map do |p|
       if p.text.match pattern
-        p["class"] = to_class(p.text)
+        p["class"] = to_class(p.text) + " note"
       end
     end
     doc.to_html
