@@ -20,6 +20,7 @@ end
 compile '/chapters/*' do
   filter :kramdown
   layout 'default'
+  filter :relativize_paths, :type => :html
 end
 
 compile '*' do
@@ -28,6 +29,7 @@ compile '*' do
   else
     filter :erb
     layout 'default'
+    filter :relativize_paths, :type => :html
   end
 end
 
