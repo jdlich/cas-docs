@@ -38,8 +38,8 @@ def cas_logo
   find_item %r{/images/cas_logo/}
 end
 
-def flatten(string)
-  string.downcase.split(" ").map { |w| w.gsub(/[^a-zA-Z\-]/, '') }.join("-")
+def to_id(header_text)
+  header_text.downcase.split(" ").map { |w| w.gsub(/[^a-zA-Z\-]/, '') }.join("-")
 end
 
 ### Private
