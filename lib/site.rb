@@ -18,6 +18,10 @@ def titleize(identifier)
   filename.split("-")[1..-1].map { |w| w.capitalize }.join(" ")
 end
 
+def pdf
+  find_item %r{^/pdf/}
+end
+
 def table_of_contents
   find_item %r{^/table_of_contents/}
 end
