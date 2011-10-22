@@ -11,6 +11,8 @@ The CAS server and clients comprise the two physical components of the CAS syste
 
 The CAS server application is Java servlet built on the Spring Framework whose primary responsibility is to authenticate users and grant access to CAS-enabled services, commonly called CAS clients, by issuing and validating tickets. An SSO session is created when the server issues a ticket-granting ticket (TGT) to the user upon successful login. A service ticket (ST) is issued to a service at the user's request via browser redirects using the TGT as a token. The ST is subsequently validated at the CAS server via back-channel communication. These interactions are described in great detail in the [CAS Protocol document].
 
+[CAS Protocol document]: http://www.jasig.org/cas/protocol
+
 ### CAS Clients ###
 
 The term "CAS client" has two distinct meanings in its common use. A CAS client is any CAS-enabled application that can communicate with the server via a supported protocol. A CAS client is also a software package that can be integrated with various software platforms and applications in order to communicate with the CAS server using or or more supported protocols. CAS clients supporting a number of software platforms and products have been developed.
@@ -38,11 +40,11 @@ Examples of some applications that can be CASified, that is, made to acts as cli
 * Outlook Web Application (via ClearPass Extension and .NET CAS Client)
 * uPortal (via built-in support)
 
-When the term "CAS client" appears in this manual without further qualification, it refers to the integration components such as the Jasig Java CAS Client rather than to the application relying upon (a client of) the CAS server.</para>
+When the term "CAS client" appears in this manual without further qualification, it refers to the integration components such as the Jasig Java CAS Client rather than to the application relying upon (a client of) the CAS server.
 
 ## Protocols ##
 
-Clients communicate with the server by any of several supported protocols.  All the supported protocols are conceptually similar, yet some have features or characteristics that make them desirable for particular applications or use cases. For example, the CAS protocol supports delegated (proxy) authentication, and the SAML protocol supports attribute release and single sign-out.
+Clients communicate with the server by any of several supported protocols. All the supported protocols are conceptually similar, yet some have features or characteristics that make them desirable for particular applications or use cases. For example, the CAS protocol supports delegated (proxy) authentication, and the SAML protocol supports attribute release and single sign-out.
 
 ### CAS Protocol ###
 
@@ -50,7 +52,7 @@ The CAS protocol is a simple and powerful ticket-based protocol developed exclus
 
 #### CAS protocols shared across CAS software versions ####
 
-The CAS 3.4 server software speaks the CAS 1 and CAS 2 protocols.  Integrations with CAS via the CAS protocol should be independent of particular versions of the CAS server software.  That is, client libraries should work with CAS, not merely work with some particular version of the CAS server software, by virtue of these protocols remaining unchanged across CAS 2 and CAS 3 versions.  CAS server 3.4 (which this manual documents) speaks the same CAS protocol that CAS 3.3, 3.2, 3.1, 3.0, and even Yale CAS Server 2 versions speak, and so client libraries shouldn't need to or even be able to differentiate among these.
+The CAS 3.4 server software speaks the CAS 1 and CAS 2 protocols. Integrations with CAS via the CAS protocol should be independent of particular versions of the CAS server software. That is, client libraries should work with CAS, not merely work with some particular version of the CAS server software, by virtue of these protocols remaining unchanged across CAS 2 and CAS 3 versions. CAS server 3.4 (which this manual documents) speaks the same CAS protocol that CAS 3.3, 3.2, 3.1, 3.0, and even Yale CAS Server 2 versions speak, and so client libraries shouldn't need to or even be able to differentiate among these.
 
 Additional features not originally in the CAS protocol have been added (such as single logout callbacks), but support for the CAS protocol as defined remains.
 
@@ -126,7 +128,7 @@ Expiration policies support finite timeout expiration, sliding scale expiration,
 
 #### Identifier Generators ####
 
-CAS ships with configurable generators for identifiers.  Ticket identifiers are key to the CAS security model in it not being feasible to guess valid identifiers.
+CAS ships with configurable generators for identifiers. Ticket identifiers are key to the CAS security model in it not being feasible to guess valid identifiers.
 
 * NumericGenerator - Generates sequential integer identifiers
 * RandomStringGenerator - Generates random string identifiers
@@ -150,9 +152,6 @@ The TicketRegistry component is a ticket storage abstraction layer. CAS supports
 The CAS login workflow is not an interface per se, but is a workflow implemented in Spring WebFlow that can be customized to support novel use cases. Customizing logical transitions, decision  points, and start/end states is straightforward and can generally be done by editing XML, while defining new actions typically requires development of actions in Java.
               
 (See also the recording of Adam Rybicki's presentation at the 2010 Jasig conference on [Extending CAS Using Spring Web Flow])
-
-
-[CAS Protocol document]: http://www.jasig.org/cas/protocol
 
 [Extending CAS Using Spring Web Flow]: http://vimeo.com/11631079
 

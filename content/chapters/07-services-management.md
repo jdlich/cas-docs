@@ -6,9 +6,9 @@ The CAS Services Management features allows CAS server administrators to declare
 
 Technically, yes to both. Practically, no to both.
 
-Yes, in the latest CAS releases, under the hood, you'll always be using the Services Registry and every service must match a service registration or else the service can't use CAS. However, the default in-memory services registry includes default wildcard matching service registrations such that any http:// or https:// service can all CAS features. If you don't want to use the Services Registry to replace those wildcard registrations with registrations restricting to and configuring the services you'd like to allow to use your CAS server, simply do nothing.
+Yes, in the latest CAS releases, under the hood, you'll always be using the Services Registry and every service must match a service registration or else the service can't use CAS. However, the default in-memory services registry includes default wildcard matching service registrations such that any `http://` or `https://` service can all CAS features. If you don't want to use the Services Registry to replace those wildcard registrations with registrations restricting to and configuring the services you'd like to allow to use your CAS server, simply do nothing.
 
-If you are using the services registry, you don't have to use the Web-based tooling to administer it. You can instead maintain your service registrations as Spring-wired beans in the deployerConfigContext.xml file. However, presently updates to this file require a CAS server restart to take effect, so not using the Web-based services registry UI eliminates your ability to make live registration changes.
+If you are using the services registry, you don't have to use the Web-based tooling to administer it. You can instead maintain your service registrations as Spring-wired beans in the `deployerConfigContext.xml` file. However, presently updates to this file require a CAS server restart to take effect, so not using the Web-based services registry UI eliminates your ability to make live registration changes.
 
 ## Registered Services ##
 
@@ -26,7 +26,7 @@ Likewise, service registrations also each have a description. This description i
 
 ### Service URL ### 
 
-Service registrations have a service URL. This is the attribute whereby CAS matches a request to use CAS at runtime with service registry registrations. This can be a URL or a URL-like string using Ant-style pattern matching, e.g. https://apps.example.com/** to match any Web application running on https://apps.example.com.
+Service registrations have a service URL. This is the attribute whereby CAS matches a request to use CAS at runtime with service registry registrations. This can be a URL or a URL-like string using Ant-style pattern matching, e.g. `https://apps.example.com/**` to match any Web application running on `https://apps.example.com`.
 
 ### Theme Name ### 
 
@@ -84,7 +84,6 @@ In practice, the in-memory registry implementation will only be attractive to CA
 
 While the in-memory implementation supports using the Services Registry UI to edit the live registration data, it does not persist these changes anywhere, so _all of your careful data entry will be lost on CAS server restart_.
 
-
 ### JPA Services Registry ### 
 
 CAS includes a JPA services registry implementation that stores service registrations in a database. This is the commonly adopted option for CAS instances making use of administratively live-editable service registrations.
@@ -95,25 +94,23 @@ CAS includes a Web-based administrative UI for managing service registrations.
 
 First we'll configure the URLs associated with the services management UI and authorize a user to access it.  Then we'll actually access it.
 
-
-
 ### Configuring URLs to the Services Management UI in cas.properties ###
 
-__Tip__: If your CAS server is deployed to http://localhost:8080 (as in, say, you've naively deployed CAS to an unconfigured Tomcat instance installed on your local computer) and you're not yet using SSL, then you need not change any of the _cas.properties_ properties.
+__Tip__: If your CAS server is deployed to `http://localhost:8080` (as in, say, you've naively deployed CAS to an unconfigured Tomcat instance installed on your local computer) and you're not yet using SSL, then you need not change any of the _cas.properties_ properties.
 
 The file _cas.properties_ includes several properties that configure CAS to know the URL to its own services management feature and to its own CAS server endpoints . These URLs configure the use of Spring Security to secure access to the administrative panes.
 
-_server.prefix_ was introduced in CAS 3.4.10 and specifies the protocol (http or https), hostname, non-default port, and path to the CAS server web application. It is a convenience property so that you can update this in one line rather than having to tweak the _cas.securityContext.serviceProperties.service_, _cas.securityContext.casProcessingFilterEntryPoint.loginUrl_, and _cas.securityContext.casProxyTicketValidator.casValidate_ properties individually. If you're using an older version of CAS 3.4, then you should upgrade, but in the meantime, no worries, you can configure those other properties individually or simply add the _server.prefix_ property. If you're using CAS 3.4.10, great, set this one _server.prefix_ property to have a value like "https://mycasserver.com:8993/caswebapp" . "http://localhost:8080/cas" is what you want for the simplest possible example of trying out CAS in an unconfigured Tomcat on your laptop, and is the default value.
+`server.prefix` was introduced in CAS 3.4.10 and specifies the protocol (`http` or `https`), hostname, non-default port, and path to the CAS server web application. It is a convenience property so that you can update this in one line rather than having to tweak the `cas.securityContext.serviceProperties.service`, `cas.securityContext.casProcessingFilterEntryPoint.loginUrl`, and `cas.securityContext.casProxyTicketValidator.casValidate` properties individually. If you're using an older version of CAS 3.4, then you should upgrade, but in the meantime, no worries, you can configure those other properties individually or simply add the `server.prefix` property. If you're using CAS 3.4.10, great, set this one `server.prefix` property to have a value like `https://mycasserver.com:8993/caswebapp`. `http://localhost:8080/cas` is what you want for the simplest possible example of trying out CAS in an unconfigured Tomcat on your laptop, and is the default value.
 
-_cas.securityContext.serviceProperties.service_ specifies the Service URL associated with the CAS Services Registry webapplication itself. The value of this property will be the value of the service parameter on the CAS login redirect generated by Spring Security when you try to access the Services Registry UI with a not-yet-authenticated browser session.
+`cas.securityContext.serviceProperties.service` specifies the Service URL associated with the CAS Services Registry webapplication itself. The value of this property will be the value of the service parameter on the CAS login redirect generated by Spring Security when you try to access the Services Registry UI with a not-yet-authenticated browser session.
 
-_cas.securityContext.casProcessingFilterEntryPoint.loginUrl_ specifies the CAS server login URL. This will be the URL of the redirect Spring Security generates when you try to access the Services Registry web user interface with a not-yet-authenticated session.
+`cas.securityContext.casProcessingFilterEntryPoint.loginUrl` specifies the CAS server login URL. This will be the URL of the redirect Spring Security generates when you try to access the Services Registry web user interface with a not-yet-authenticated session.
 
-_cas.securityContext.casProxyTicketValidator.casValidate_ specifies the CAS server endpoint whereat Spring Security will validate the Service Ticket it obtains in logging the administrator in via CAS.
+`cas.securityContext.casProxyTicketValidator.casValidate` specifies the CAS server endpoint whereat Spring Security will validate the Service Ticket it obtains in logging the administrator in via CAS.
 
-__Note:__ Linebreaks are introduced to make documentation fit in below listings.  In documentation formatting, the _cas.securityContext.serviceProperties.service_ property key and its value appear on separate lines to get the documentation to fit on the page. However, in the real cas.properties, a property key, equals character, and property value must all be on a single line.
+__Note:__ Linebreaks are introduced to make documentation fit in below listings. In documentation formatting, the `cas.securityContext.serviceProperties.service` property key and its value appear on separate lines to get the documentation to fit on the page. However, in the real cas.properties, a property key, equals character, and property value must all be on a single line.
 
-These properties in cas.properties have these values by default:
+These properties in `cas.properties` have these values by default:
 
     server.prefix=http://localhost:8080/cas
 
@@ -122,7 +119,7 @@ These properties in cas.properties have these values by default:
     cas.securityContext.casProcessingFilterEntryPoint.loginUrl=${server.prefix}/login
     cas.securityContext.ticketValidator.casServerUrlPrefix=${server.prefix}
                      
-... whereas they would have these values if your CAS server is deployed as a web application named "cas" to https://secure.its.yale.edu running on the default https:// port...
+... whereas they would have these values if your CAS server is deployed as a web application named "cas" to `https://secure.its.yale.edu` running on the default `https://` port...
 
     server.prefix=https://secure.its.yale.edu/cas
 
@@ -152,11 +149,11 @@ You can list as many authorized users as you like. The password attribute isn't 
 
 The services registry has only one role, but the key of that role is configured in cas.properties, so you can use something other than ROLE_ADMIN if you want -- that might make sense if you reconfigured Spring Security to use an external user details service that has more roles in it beyond the single in-or-out role used for the CAS Services Registry.
 
-Usernames enumerated in the user details service with authority ROLE_ADMIN will be able to access the Services Registry interface. All other users will be denied access.
+Usernames enumerated in the user details service with authority `ROLE_ADMIN` will be able to access the Services Registry interface. All other users will be denied access.
 
 ### URL to the Services Management UI ###
 
-The CAS Services Management UI is available at the path /services/ within your CAS server. If your CAS webapp is named "cas" and you've deployed it at http://localhost:8080, then the URL to the CAS server services management UI is http://localhost:8080/cas/services or, if you're using SSL, https://localhost:8443/cas/services .
+The CAS Services Management UI is available at the path `/services/` within your CAS server. If your CAS webapp is named "cas" and you've deployed it at `http://localhost:8080`, then the URL to the CAS server services management UI is `http://localhost:8080/cas/services` or, if you're using SSL, `https://localhost:8443/cas/services`.
 
 ### Using the Web-based services registry administrative UI ###
 
@@ -177,8 +174,6 @@ __There's no undo.__ If you delete a registration, it's gone.
 You can register a new service.
 
 ![Registering a new service](media/add_service_registration_1024_872.jpg)
-
-
 
 #### Editing an Existing Service Registration #### 
 

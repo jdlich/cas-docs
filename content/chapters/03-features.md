@@ -6,6 +6,8 @@ This chapter is intended to help you understand what features the CAS server pro
 
 (There's also a [four-page PDF][cas-product-brochure] that may meet your glossy brochure needs.)
 
+[cas-product-brochure]: http://www.jasig.org/sites/jasig.webchuckhosting.com/files/cas_brochure_v4.pdf
+
 ## Single Sign-On for the Web
 
 Jasig CAS implements single sign-on for the Web.
@@ -84,10 +86,8 @@ Jasig is a collaborative free and open source software project sponsored by Jasi
 
 The greatest feature of CAS may be its community, including an active email list for discussion of adopting and locally implementing CAS, an active email list for discussion of and collaborating upon advancing the Jasig CAS open source software project, a plethora of institutions who have adopted CAS (within and beyond higher education), presence at Jasig's periodic (in recent history, annual) conferences, a frequented IRC chat room on freenode, and commercial partners ([Jasig CAS Solutions Providers]) providing commercial services in support of CAS implementation.
 
+[Jasig CAS Solutions Providers]: http://www.jasig.org/cas/support/solutions-providers
+
 [Jasig] is a membership organization. If you've derived value from CAS, or even if you haven't, perhaps your organization should consider a relationship with Jasig.
 
-
-[cas-product-brochure]: http://www.jasig.org/sites/jasig.webchuckhosting.com/files/cas_brochure_v4.pdf
-
-[Jasig CAS Solutions Providers]: http://www.jasig.org/cas/support/solutions-providers
 [Jasig]: http://www.jasig.org/

@@ -63,7 +63,7 @@ phpCAS is a core supported vended-by-Jasig CAS integration module.
 
 #### Ruby on Rails ####
 
-Use the [rubycas-client].
+Use the [rubycas-client](http://code.google.com/p/rubycas-client/).
 
 rubycas-client is not vended by Jasig.
 
@@ -71,12 +71,13 @@ rubycas-client is not vended by Jasig.
 
 Use [PerlCAS].
 
+[PerlCAS]: http://sourcesup.cru.fr/projects/perlcas/
+
 PerlCAS is not vended by Jasig.
 
 #### IMAP Server ####
 
-It may be feasible to use the pam\_cas module, depending upon whether your IMAP server supports delegation to a pam module and is running on an OS affording pam module plugin points.
-
+It may be feasible to use the `pam_cas` module, depending upon whether your IMAP server supports delegation to a pam module and is running on an OS affording pam module plugin points.
 
 ### Authentication ###
 
@@ -124,7 +125,3 @@ Every enterprise deployment of CAS should be vitally concerned with availability
 We present some popular deployment scenarios for CAS with commentary on availability and performance characteristics.
 
 <p class="todo">TODO: complete this Deployment Scenarios section. E.g. "Single Client/Single Server"</p>
-
-
-[rubycas-client]: http://code.google.com/p/rubycas-client/
-[PerlCAS]: http://sourcesup.cru.fr/projects/perlcas/

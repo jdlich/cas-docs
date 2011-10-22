@@ -40,7 +40,7 @@ Java server DNS refresh configuration is important in a CAS deployment in two pl
 
 Firstly, services making use of CAS perform DNS lookups to figure out where the CAS server is to validate service ticket against it. If you move your CAS server and update DNS to give it a new IP address, you may want the CAS-relying services to figure this out and start using the new CAS server.
 
-Secondly, CAS itself performs callbacks to services and may need to look them up in DNS in order to generate its single logout or proxy granting ticket vending callbacks.  You may want CAS to be able to find the new IP address of a service if that service's DNS entry updates.
+Secondly, CAS itself performs callbacks to services and may need to look them up in DNS in order to generate its single logout or proxy granting ticket vending callbacks. You may want CAS to be able to find the new IP address of a service if that service's DNS entry updates.
 
 The Java Virtual Machine's default DNS cache timeout is configured in `$JRE_HOME/lib/security/java.security`
 

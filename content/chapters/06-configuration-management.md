@@ -74,11 +74,11 @@ Example result of running `mvn --version`:
 
 #### ...on Windows ####
 
-Add the `M2\_HOME` environment variable by opening the system properties (WinKey + Pause), selecting the "Advanced" tab, clicking the "Environment Variables" button, then adding the `M2\_HOME` variable to the set of user variables with value `$MAVEN\_HOME` (recall that `$MAVEN_HOME` is the placeholder in this documentation for the path to your Maven installation, something like `/opt/apache-maven-2.2.1`. Be sure to omit any quotation marks around the path even if it includes spaces. The value of `M2\_HOME` should not end with a "\" character -- if you're using Maven 2.0.9 or earlier, it must not end with a slash character.
+Add the `M2_HOME` environment variable by opening the system properties (WinKey + Pause), selecting the "Advanced" tab, clicking the "Environment Variables" button, then adding the `M2_HOME` variable to the set of user variables with value `$MAVEN_HOME` (recall that `$MAVEN_HOME` is the placeholder in this documentation for the path to your Maven installation, something like `/opt/apache-maven-2.2.1`. Be sure to omit any quotation marks around the path even if it includes spaces. The value of `M2_HOME` should not end with a "\" character -- if you're using Maven 2.0.9 or earlier, it must not end with a slash character.
 
 In the same dialog, add an environment variable `M2` with value `%M2_HOME%\\bin` 
 
-Optionally, in the same dialog, add the `MAVEN\_OPTS` environment variable in the user variables to specify JVM properties for use with Maven. For example, the value `-Xms256m -Xmx512m` instructs Maven to use at least 256 megabytes and at most 512 megabytes of memory. More ambitious usages of Maven can require more than the default allocation of memory. In general, the `MAVEN\_OPTS` environment variable supplies extra JVM configuration to Maven.
+Optionally, in the same dialog, add the `MAVEN_OPTS` environment variable in the user variables to specify JVM properties for use with Maven. For example, the value `-Xms256m -Xmx512m` instructs Maven to use at least 256 megabytes and at most 512 megabytes of memory. More ambitious usages of Maven can require more than the default allocation of memory. In general, the `MAVEN_OPTS` environment variable supplies extra JVM configuration to Maven.
 
 In the same dialog, create or update a Path environment variable in the user variables and prepend the value `%M2%` to make the Maven executable available ubiquitously on the command line.
 
@@ -102,13 +102,13 @@ You can put this directory anywhere you like. If you need somewhere, /opt/work i
 
 In any case, this documentation will refer to this workspace directry as `$WORKSPACE`, and we won't refer to it much, because the very next step is to create a directory within it where all the real work will happen.
 
-Within `$WORKSPACE`, add a directory for your local organization's CAS project, that is, the directory for the project of your local CAS configurations and customizations. You might call this local-cas, yielding a path `$WORKSPACE/local-cas`. This documentation will refer to this directory as your `$PROJECT\_HOME`.
+Within `$WORKSPACE`, add a directory for your local organization's CAS project, that is, the directory for the project of your local CAS configurations and customizations. You might call this local-cas, yielding a path `$WORKSPACE/local-cas`. This documentation will refer to this directory as your `$PROJECT_HOME`.
 
-Into your `$PROJECT\_HOME` directory will go two things: a special file named `pom.xml` that describes your local CAS implementation as a Maven Overlay war project, and all of the changed and new files that make your local implementation differ from the CAS `war` as delivered by the CAS open source project.
+Into your `$PROJECT_HOME` directory will go two things: a special file named `pom.xml` that describes your local CAS implementation as a Maven Overlay war project, and all of the changed and new files that make your local implementation differ from the CAS `war` as delivered by the CAS open source project.
 
 #### Your pom.xml ####
 
-You CAS implementation's `pom.xml` describes your local institution's CAS implementation as a Maven project. This pom.xml. should go directly in your `$PROJECT\_HOME` directory, as in `$PROJECT\_HOME/pom.xml`
+Your CAS implementation's `pom.xml` describes your local institution's CAS implementation as a Maven project. This pom.xml. should go directly in your `$PROJECT_HOME` directory, as in `$PROJECT_HOME/pom.xml`
 
 _The rest of the documentation..._
 
