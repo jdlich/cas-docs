@@ -16,7 +16,7 @@ end
 
 compile '/pdf/' do
   filter :erb
-  # filter :pdfkit
+  filter :pdfkit
 end
 
 compile '/chapters/*' do
