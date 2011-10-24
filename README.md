@@ -40,6 +40,8 @@ With the latest version of ruby installed you can now install `bundler`, a ruby 
 		nanoc aco
 		# => localhost:3000
 
+	*(NOTE: the PDF generation is somewhat of a small bottleneck during compilation, but you can temporarily comment out the `:pdfkit` compile filter in the `Rules` file — or just deal with the extra few seconds.)*
+
 ## nanoc Filesystem Breakdown
 
 * `config.rb` - Compass stylesheet framework configuration ([compass](http://compass-style.org/) is built on top of [sass](http://sass-lang.com/))
