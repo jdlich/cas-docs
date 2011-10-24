@@ -29,7 +29,7 @@ With the latest version of ruby installed you can now install `bundler`, a ruby 
 		cd cas-docs
 		bundle install
 
-	*(If the command is not found, make sure you have the rubygems bin folder in your path. It's going to be something like `.../ruby/gems/1.9.2/gems/bin`)*
+	*(NOTE: if the command is not found, make sure you have the rubygems bin folder in your path. It's going to be something like `.../ruby/gems/1.9.2/gems/bin`)*
 
 3. Build the project into a new directory called `output/`
 
