@@ -35,6 +35,11 @@ With the latest version of ruby installed you can now install `bundler`, a ruby 
 
 		nanoc compile
 
+4. Start `nanoc`'s autocompile server which runs on `http://localhost:3000`:
+
+		nanoc aco
+		# => localhost:3000
+
 ## nanoc Filesystem Breakdown
 
 * `config.rb` - Compass stylesheet framework configuration ([compass](http://compass-style.org/) is built on top of [sass](http://sass-lang.com/))
