@@ -20,22 +20,22 @@ With the latest version of ruby installed you can now install `bundler`, a ruby 
 
 ## Getting Started
 
-1. Clone this repository:
+1. Clone this repository
 
 		git clone git@github.com:jdlich/cas-docs.git
 
-2. From the project root, install gem dependencies via `bundle`:
+2. From the project root, install gem dependencies via `bundle`
 
 		cd cas-docs
 		bundle install
 
 	*(If the command is not found, make sure you have the rubygems bin folder in your path. It's going to be something like `.../ruby/gems/1.9.2/gems/bin`)*
 
-3. To build the project into a new directory called `output/`, run:
+3. Build the project into a new directory called `output/`
 
 		nanoc compile
 
-4. Start `nanoc`'s autocompile server which runs on `http://localhost:3000`:
+4. Start `nanoc`'s autocompile server which runs on `http://localhost:3000`
 
 		nanoc aco
 		# => localhost:3000
