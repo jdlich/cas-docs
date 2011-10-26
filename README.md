@@ -30,6 +30,8 @@ With the latest version of ruby installed you can now install `bundler`, a ruby 
 		bundle install
 
 	*(NOTE: if the command is not found, make sure you have the rubygems bin folder in your path. It's going to be something like `.../ruby/gems/1.9.2/gems/bin`)*
+	
+	*(ALSO NOTE: if `bundler` stops because of a system dependency, make sure to run `bundle install` again after you have resolved the issue)*
 
 3. Build the project into a new directory called `output/`
 
