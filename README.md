@@ -2,8 +2,6 @@
 
 The documentation is written in `markdown` then converted to HTML and PDF using a static site compiler written in Ruby called `nanoc`.
 
-You'll probably need to install a few things before getting started.
-
 ## Installing Bundler
 
 First, make sure you have the latest version of ruby:
