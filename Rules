@@ -14,8 +14,9 @@ compile '/styles/styles/' do
   filter :sass, Compass.sass_engine_options
 end
 
-compile '/pdf/' do
+compile '/download/pdf/' do
   filter :erb
+  filter :adjust_image_paths
   filter :pdfkit
 end
 
@@ -50,8 +51,8 @@ route '/styles/styles/' do
   '/styles.css'
 end
 
-route '/pdf/' do
-  "/CAS-Documentation-v#{CAS_VERSION}.pdf"
+route '/download/pdf/' do
+  "/download/CAS-Documentation-v#{CAS_VERSION}.pdf"
 end
 
 route '*' do

@@ -17,7 +17,7 @@ def titleize(identifier)
 end
 
 def pdf
-  find_item %r{^/pdf/}
+  find_item %r{^/download/pdf/}
 end
 
 def headers(html, tag)

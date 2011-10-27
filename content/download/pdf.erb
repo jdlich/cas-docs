@@ -17,6 +17,28 @@ converted to a PDF.
      
 -->
 
-<% chapters.each do |chapter| %>
-  <%= snapshot(chapter) %>
-<% end %>
+<style type="text/css">
+  <%= snapshot(styles) %>
+  
+  #pdf {
+    margin-left: 150px;
+  }
+    
+  #pdf h4 {
+    letter-spacing: normal;
+  }
+  
+  #pdf h1:first-child {
+    font-weight: bold;
+  }
+</style>
+
+<div id="pdf">
+  <h1>CAS Manual v<%= CAS_VERSION %></h1>
+  
+  <% chapters.each do |chapter| %>
+    <%= snapshot(chapter) %>
+  <% end %>
+</div>
+
+
