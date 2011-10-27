@@ -14,7 +14,7 @@ class AdjustImagePaths < Nanoc3::Filter
   def path_from_system_root(path)
     filename = path.split("/").last.split(".").first
     image    = find_item %r{.+images.+#{filename}}
-    project_root + "/content" + image.identifier.chomp("/") + "." + image[:extension]
+    File.absolute_path(nanoc_root) + "/content" + image.identifier.chomp("/") + "." + image[:extension]
   end
     
 end

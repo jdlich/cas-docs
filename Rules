@@ -10,6 +10,7 @@ Compass.add_project_configuration('config.rb')
 compile '/styles/_*' do
   # don't compile partials
 end
+
 compile '/styles/styles/' do
   filter :sass, Compass.sass_engine_options
 end

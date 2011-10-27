@@ -40,8 +40,8 @@ def to_id(header_text)
   header_text.downcase.split(" ").map { |w| w.gsub(/[^a-zA-Z\-]/, '') }.join("-")
 end
 
-def project_root
-  File.expand_path('../..', __FILE__)
+def nanoc_root
+  File.dirname(config[:output_dir])
 end
 
 ### Private
