@@ -75,10 +75,14 @@ code {
     font-family: "Courier New", Courier;
 }
 
-#header p {
+#header ul {
     font-size: 75%;
     font-style: italic;
     margin: 0;
+    
+    li {
+        margin-bottom: 7px;
+    }
 
     a {
         @include inline-block;

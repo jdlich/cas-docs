@@ -1,6 +1,10 @@
+---
+title: Table of Contents
+---
+
 <h1>Table of Contents</h1>
 
-<% chapters.each do |chapter| %>
+<% chapters.delete_if { |i| i.identifier =~ /table-of-contents/ }.each do |chapter| %>
   <h3><%= titleize(chapter.identifier) %></h3>
   <ul>
     <% headers(snapshot(chapter), "h3").each do |header| %>

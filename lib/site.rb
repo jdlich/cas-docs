@@ -20,10 +20,6 @@ def pdf
   find_item %r{^/pdf/}
 end
 
-def table_of_contents
-  find_item %r{^/table_of_contents/}
-end
-
 def headers(html, tag)
   Nokogiri::HTML(html).css(tag)
 end

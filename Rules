@@ -16,11 +16,15 @@ end
 
 compile '/pdf/' do
   filter :erb
-  filter :pdfkit
+#  filter :pdfkit
 end
 
 compile '/chapters/*' do
-  filter :kramdown
+  if item[:extension] == 'md'
+    filter :kramdown
+  else
+    filter :erb
+  end
   filter :note_classes
   layout 'default'
   filter :relativize_paths, :type => :html

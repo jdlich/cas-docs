@@ -12,16 +12,16 @@
         <!-- Header -->
         <div id="header">
           <img src="<%= cas_logo.path %>" alt="CAS" />
-          <p><a href="https://github.com/jdlich/cas-docs" title="Source on GitHub">Documentation v<%= CAS_VERSION %></a></p>
+          <ul>
+              <li><a href="https://github.com/jdlich/cas-docs" title="Source on GitHub">Documentation v<%= CAS_VERSION %></a></li>
+              <li><a href="<%= pdf.path %>">Download PDF</a></li>
         </div>
         
         <!-- Navigation -->
         <ul id="navigation">
-          <li><a href="<%= table_of_contents.path %>">Table of Contents</a></li>
           <% chapters.each do |chapter| %>
-              <li><a href="<%= chapter.path %>"><%= titleize(chapter.identifier) %></a></li>
+              <li><a href="<%= chapter.path %>"><%= chapter[:title] or titleize(chapter.identifier) %></a></li>
           <% end %>
-          <li><a href="<%= pdf.path %>">Download PDF</a></li>
         </ul>
         
       </div>
