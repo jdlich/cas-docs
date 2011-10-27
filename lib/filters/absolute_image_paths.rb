@@ -1,6 +1,14 @@
-class AdjustImagePaths < Nanoc3::Filter
+
+#
+# wkhtmltopdf requires absolute image paths.
+#
+# So, this filter updates each img tag's src attribute
+# with the absolute path from your system's root
+#
+
+class AbsoluteImagePaths < Nanoc3::Filter
   
-  identifier :adjust_image_paths
+  identifier :absolute_image_paths
   type :text
   
   def run(content, params={})

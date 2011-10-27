@@ -17,7 +17,7 @@ end
 
 compile '/download/pdf/' do
   filter :erb
-  filter :adjust_image_paths
+  filter :absolute_image_paths
   filter :pdfkit
 end
 
