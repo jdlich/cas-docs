@@ -6,15 +6,15 @@ class AdjustImagePaths < Nanoc3::Filter
   def run(content, params={})
     doc = Nokogiri::HTML(content)
     doc.css("img").each do |img|
-      img["src"] = adjust_path(img["src"])
+      img["src"] = path_from_system_root(img["src"])
     end
     doc.to_html
   end
   
-  def adjust_path(path)
-    # directories = item.path.split("/").reject(&:empty?).length - 1
-    # new_path    = "../" * directories
-    path.gsub(/^(\/|\.\.\/)+/, "/")
+  def path_from_system_root(path)
+    filename = path.split("/").last.split(".").first
+    image    = find_item %r{.+images.+#{filename}}
+    project_root + "/content" + image.identifier.chomp("/") + "." + image[:extension]
   end
     
 end
