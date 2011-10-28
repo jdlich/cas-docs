@@ -14,6 +14,8 @@ When creating a new theme in CAS, there is not an easy way to preserve existing 
 
 So, practically the only approach is to override the existing default theme.
 
+EDITOR NOTE: Although, if your skin does not require changes to the JSP views, you can simply create a new `css` file and point to it from within `WEB-INF/classes/cas-theme-default.properties`
+
 ### CSS
 
 The default styles are all contained in a single file located in `css/cas.css`. This location is set in `WEB-INF/classes/cas-theme-default.properties`. (Ignore the themes folder, it's nothing but leftovers from yesteryear.)
