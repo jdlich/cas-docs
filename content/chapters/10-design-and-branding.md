@@ -42,6 +42,24 @@ The main log in page (the CAS "home page") is located at `view/jsp/default/ui/ca
 
 Notice `top.jsp` and `bottom.jsp` include files located in `view/jsp/default/ui/includes`. These serve as the layout template for the other JSP files, which get injected in between during compilation to create a complete HTML page.
 
+## Workflow
+
+After you make changes, the quickest way to see the results in a browser is to copy them to tomcat. You do not need to rebuild CAS every time you make a change.
+
+`rsync` is a handy (and powerful) command line utility that is perfect for the job.
+
+Here's the command that I use in my skinning projects:
+
+	rsync -ruv --exclude '*svn' CAS_ROOT/cas-server-webapp/src/main/webapp/* TOMCAT_ROOT/webapps/cas/
+
+*(Make sure to replace `CAS_ROOT` and `TOMCAT_ROOT` with the appropiate paths.)*
+
+This will copy only the files that have been changed and give some friendly output.
+
+For more information on 	`rsync` refer to the help menu like any other command line utility:
+
+	rsync --help
+
 ## Glossary of Views
 
 **authorizationFailure**  
