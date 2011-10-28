@@ -18,7 +18,7 @@ end
 compile '/download/pdf/' do
   filter :erb
   filter :absolute_image_paths
-  filter :pdfkit
+  # filter :pdfkit
 end
 
 compile '/chapters/*' do
