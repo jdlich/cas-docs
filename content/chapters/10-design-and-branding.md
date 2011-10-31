@@ -89,12 +89,14 @@ Used in conjunction with the service registry feature, displayed when the servic
 
 There are 2 configuration files in particular that concern the theme:
 
-* `WEB-INF/classes/cas-theme-default.properties` - Contains the location of the theme's CSS files.
+**WEB-INF/classes/cas-theme-default.properties**  
+Contains the location of the theme's CSS files.
 
-* `WEB-INF/classes/default_views.properties` - Contains the location of the JSP views.
+**WEB-INF/classes/default_views.properties**  
+Contains the location of the JSP views.
 
 ## Mobile Theme
 
-CAS uses [jQuery Mobile]() along with the Fluid Skinning System.
+CAS uses [jQuery Mobile]() along with the Fluid Skinning System. 
 
 [jQuery Mobile]: http://jquerymobile.com/
