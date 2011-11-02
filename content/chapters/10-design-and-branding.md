@@ -63,27 +63,31 @@ For more information on 	`rsync` refer to the help menu like any other command l
 ## Glossary of Views
 
 **authorizationFailure**  
+Displayed when a user successfully authenticates to the services management web-based administrative UI included with CAS, but the user is not authorized to access that application.
 
 **brokenContext**  
+Displayed when CAS fails (typically at servlet context initialization, i.e. when the CAS application is first deployed or when Tomcat is started), with an ApplicationContextException, typically indicating an error in a Spring configuration file.
 
 **casConfirmView**  
-Displayed when the user is warned before being redirected to the service.
+Displayed when the user is warned before being redirected to the service.  This allows users to be made aware whenever an application uses CAS to log them in. (If they don't elect the warning, they may not see any CAS screen when accessing an application that successfully relies upon an existing CAS single sign-on session.)  Some CAS adopters remove the 'warn' checkbox in the CAS login view and don't offer this interstitial advisement that single sign-on is happening.
 
 **casGenericSuccess**  
 Displayed when the user has been logged in without providing a service to be redirected to.
 
 **casLoginView**  
-As mentioned above, this is the main log in view.
+Main login form.
 
 **casLogoutView**  
 Displayed when the user logs out.
 
 **errors** 
+Displayed when CAS experiences an error it doesn't know how to handle (an unhandled Exception).  For instance, CAS might be unable to access a database backing the services registry.  This is the generic CAS error page.  It's important to brand it to provide an acceptable error experience to your users.
 
 **serviceErrorView**  
-Used in conjunction with the service registry feature, displayed when the service the user is trying to access is not allowed to use CAS. Note that this feature is not enabled by default, in which case all services are able to use CAS.
+Used in conjunction with the service registry feature, displayed when the service the user is trying to access is not allowed to use CAS. The default in-memory services registry configuration, in 'deployerConfigContext.xml', allows all users to obtain a service ticket to access all services.
 
 **serviceErrorSsoView**   
+Displayed when a user would otherwise have experienced noninteractive single sign-on to a service that is, per services registry configuration, disabled from participating in single sign-on.  (In the default services registry registrations, all services are permitted to participate in single sign-on, so this view will not be displayed.)
 
 ## Configuration
 
