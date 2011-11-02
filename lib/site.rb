@@ -4,9 +4,9 @@ CAS_VERSION = "3.4.1"
 ### View helpers
 
 def chapters
-  @items
+  Array.new(@items
     .select  { |i| i.identifier =~ %r{^/chapters/} }
-    .sort_by { |i| i.identifier }
+   ).sort_by { |i| i.identifier }
 end
 
 def first_chapter
