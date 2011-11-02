@@ -18,7 +18,11 @@ EDITOR NOTE: Although, if your skin does not require changes to the JSP views, y
 
 ### CSS
 
-The default styles are all contained in a single file located in `css/cas.css`. This location is set in `WEB-INF/classes/cas-theme-default.properties`. (Ignore the themes folder, it's nothing but leftovers from yesteryear.)
+The default styles are all contained in a single file located in `css/cas.css`. This location is set in `WEB-INF/classes/cas-theme-default.properties`. (Ignore the themes folder, for now; it's an unsolved mystery.)
+
+The location of the theme's CSS file is configured in 'WEB-INF/classes/cas-theme-default.properties'. If you would like to create your own `css/custom.css` file, for example, you will need to update `standard.custom.css.file`:
+
+	standard.custom.css.file=css/custom.css
 
 CAS uses the [Fluid Skinning System]() CSS framework. More details about FSS can be found on their website.
 
@@ -32,7 +36,7 @@ There are 2 `images` folders. Ignore `css/images`, which is designated for the m
 
 If you need to add some JavaScript, feel free to append `js/cas.js`.
 
-You an also create your own `custom.js` file, for example, and call it from within `view/jsp/default/ui/includes/bottom.jsp` like so:
+You can also create your own `custom.js` file, for example, and call it from within `view/jsp/default/ui/includes/bottom.jsp` like so:
 
 	<script type="text/javascript" src="<c:url value="/js/custom.js" />"></script>
 
@@ -41,6 +45,8 @@ You an also create your own `custom.js` file, for example, and call it from with
 The main log in page (the CAS "home page") is located at `view/jsp/default/ui/casLoginView.jsp`. And there you will find the rest of the JSP files as well.
 
 Notice `top.jsp` and `bottom.jsp` include files located in `view/jsp/default/ui/includes`. These serve as the layout template for the other JSP files, which get injected in between during compilation to create a complete HTML page.
+
+The location of these JSP files are configured in `WEB-INF/classes/default_views.properties`.
 
 ## Workflow
 
@@ -88,16 +94,6 @@ Used in conjunction with the service registry feature, displayed when the servic
 
 **serviceErrorSsoView**   
 Displayed when a user would otherwise have experienced noninteractive single sign-on to a service that is, per services registry configuration, disabled from participating in single sign-on.  (In the default services registry registrations, all services are permitted to participate in single sign-on, so this view will not be displayed.)
-
-## Configuration
-
-There are 2 configuration files in particular that concern the theme:
-
-**WEB-INF/classes/cas-theme-default.properties**  
-Contains the location of the theme's CSS files.
-
-**WEB-INF/classes/default_views.properties**  
-Contains the location of the JSP views.
 
 ## Mobile Theme
 
