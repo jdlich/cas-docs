@@ -2,13 +2,28 @@
 
 The documentation is written in `markdown` then converted to HTML and PDF using a static site compiler written in Ruby called `nanoc`.
 
+## Installing Ruby + RubyGems
+
+**OS X**  
+The latest and greatest package manager attempt on OS X is [homebrew](http://mxcl.github.com/homebrew/) (skip straight to [installation](https://github.com/mxcl/homebrew/wiki/Installation))
+
+Once you have homebrew it's as simple as:
+
+	brew install ruby
+
+**Ubuntu**  
+Follow these instructions [here](https://github.com/Snorby/snorby/wiki/Ubuntu-1.9.2-without-RVM-by-Eric-Peters) (you can skip the Rails section towards the bottom…)
+
+**Windows**  
+The easiest way to install Ruby on Windows is [RubyInstaller](http://rubyinstaller.org/)
+
 ## Installing Bundler
 
-First, make sure you have the latest version of ruby:
+With ruby good to go
 
 	ruby --version # => ruby 1.9.2p290
 
-With the latest version of ruby installed you can now install `bundler`, a ruby gem that helps manage a project's gem dependencies. Install `bundler` like any other ruby gem (may require `sudo`):
+you can now install `bundler`, a ruby gem that helps manage a project's gem dependencies. Install `bundler` like any other ruby gem (may require `sudo`):
 
 	gem install bundler
 
