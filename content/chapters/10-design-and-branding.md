@@ -75,7 +75,7 @@ Displayed when a user successfully authenticates to the services management web-
 Displayed when CAS fails (typically at servlet context initialization, i.e. when the CAS application is first deployed or when Tomcat is started), with an ApplicationContextException, typically indicating an error in a Spring configuration file.
 
 **casConfirmView**  
-Displayed when the user is warned before being redirected to the service.  This allows users to be made aware whenever an application uses CAS to log them in. (If they don't elect the warning, they may not see any CAS screen when accessing an application that successfully relies upon an existing CAS single sign-on session.)  Some CAS adopters remove the 'warn' checkbox in the CAS login view and don't offer this interstitial advisement that single sign-on is happening.
+Displayed when the user is warned before being redirected to the service.  This allows users to be made aware whenever an application uses CAS to log them in. (If they don't elect the warning, they may not see any CAS screen when accessing an application that successfully relies upon an existing CAS single sign-on session.) Some CAS adopters remove the 'warn' checkbox in the CAS login view and don't offer this interstitial advisement that single sign-on is happening.
 
 **casGenericSuccess**  
 Displayed when the user has been logged in without providing a service to be redirected to.
@@ -87,16 +87,22 @@ Main login form.
 Displayed when the user logs out.
 
 **errors** 
-Displayed when CAS experiences an error it doesn't know how to handle (an unhandled Exception).  For instance, CAS might be unable to access a database backing the services registry.  This is the generic CAS error page.  It's important to brand it to provide an acceptable error experience to your users.
+Displayed when CAS experiences an error it doesn't know how to handle (an unhandled Exception). For instance, CAS might be unable to access a database backing the services registry. This is the generic CAS error page. It's important to brand it to provide an acceptable error experience to your users.
 
 **serviceErrorView**  
 Used in conjunction with the service registry feature, displayed when the service the user is trying to access is not allowed to use CAS. The default in-memory services registry configuration, in 'deployerConfigContext.xml', allows all users to obtain a service ticket to access all services.
 
 **serviceErrorSsoView**   
-Displayed when a user would otherwise have experienced noninteractive single sign-on to a service that is, per services registry configuration, disabled from participating in single sign-on.  (In the default services registry registrations, all services are permitted to participate in single sign-on, so this view will not be displayed.)
+Displayed when a user would otherwise have experienced noninteractive single sign-on to a service that is, per services registry configuration, disabled from participating in single sign-on. (In the default services registry registrations, all services are permitted to participate in single sign-on, so this view will not be displayed.)
 
 ## Mobile Theme
 
-CAS uses [jQuery Mobile]() along with the Fluid Skinning System. 
+CAS uses the [Mobile Fluid Skinning System]() to create a separate theme for devices with smaller screens.
 
-[jQuery Mobile]: http://jquerymobile.com/
+Firefox has an extension called [User Agent Switcher]() that can allow you to conveniently experience the mobile theme right in your browser. I've also attached a screenshot below.
+
+![Mobile Theme Screenshot](../../images/docs/mobile_theme.png)
+
+[Mobile Fluid Skinning System]: http://wiki.fluidproject.org/display/fluid/Mobile+FSS+Cheat+Sheet
+
+[User Agent Switcher]: https://addons.mozilla.org/en-US/firefox/addon/user-agent-switcher/
