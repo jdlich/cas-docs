@@ -18,7 +18,7 @@ end
 compile '/download/pdf/' do
   filter :erb
   filter :absolute_image_paths
-  filter :pdfkit
+  filter :pdfkit unless windows?
 end
 
 compile '/chapters/*' do
@@ -53,7 +53,7 @@ route '/styles/styles/' do
 end
 
 route '/download/pdf/' do
-  "/download/CAS-Documentation-v#{CAS_VERSION}.pdf"
+  "/download/CAS-Documentation-v#{CAS_VERSION}.pdf" unless windows?
 end
 
 route '*' do

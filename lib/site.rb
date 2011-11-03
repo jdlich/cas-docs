@@ -46,6 +46,10 @@ def nanoc_root
   File.dirname(config[:output_dir])
 end
 
+def windows?
+  RUBY_PLATFORM =~ /(win|w)32$/
+end
+
 ### Private
 
 def find_item(regex)
