@@ -21,8 +21,12 @@ class AbsoluteImagePaths < Nanoc3::Filter
   
   def path_from_system_root(path)
     filename = path.split("/").last.split(".").first
-    image    = find_item %r{.+images.+#{filename}}
-    File.absolute_path(nanoc_root) + "/content" + image.identifier.chomp("/") + "." + image[:extension]
+    image = find_item %r{.+images.+#{filename}}
+    begin
+      File.absolute_path(nanoc_root) + "/content" + image.identifier.chomp("/") + "." + image[:extension]
+    rescue NoMethodError
+      raise "Could not find the following image: #{filename}."
+    end
   end
     
 end
