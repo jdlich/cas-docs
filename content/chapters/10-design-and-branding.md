@@ -36,15 +36,15 @@ There are 2 `images` folders. Ignore `css/images`, which is designated for the m
 
 If you need to add some JavaScript, feel free to append `js/cas.js`.
 
-You can also create your own `custom.js` file, for example, and call it from within `view/jsp/default/ui/includes/bottom.jsp` like so:
+You can also create your own `custom.js` file, for example, and call it from within `WEB-INF/view/jsp/default/ui/includes/bottom.jsp` like so:
 
 	<script type="text/javascript" src="<c:url value="/js/custom.js" />"></script>
 
 ### JSP
 
-The main log in page (the CAS "home page") is located at `view/jsp/default/ui/casLoginView.jsp`. And there you will find the rest of the JSP files as well.
+The main log in page (the CAS "home page") is located at `WEB-INF/view/jsp/default/ui/casLoginView.jsp`. And there you will find the rest of the JSP files as well.
 
-Notice `top.jsp` and `bottom.jsp` include files located in `view/jsp/default/ui/includes`. These serve as the layout template for the other JSP files, which get injected in between during compilation to create a complete HTML page.
+Notice `top.jsp` and `bottom.jsp` include files located in `WEB-INF/view/jsp/default/ui/includes`. These serve as the layout template for the other JSP files, which get injected in between during compilation to create a complete HTML page.
 
 The location of these JSP files are configured in `WEB-INF/classes/default_views.properties`.
 
@@ -106,3 +106,138 @@ Firefox has an extension called [User Agent Switcher]() that can allow you to co
 [Mobile Fluid Skinning System]: http://wiki.fluidproject.org/display/fluid/Mobile+FSS+Cheat+Sheet
 
 [User Agent Switcher]: https://addons.mozilla.org/en-US/firefox/addon/user-agent-switcher/
+
+## Mini Tutorial
+
+In this brief tutorial we'll walk through each step in creating the following mockup theme for Yale University.
+
+![Mockup Yale CAS Theme](../../images/docs/theme_tutorial_final.png)
+
+### Initial CAS Setup
+
+*Feel free to follow along. We'll just be working in a single directory that you'll be able to easily delete later.*
+
+First, create a folder to house our new project:
+
+	mkdir cas-theme-tutorial
+	cd cas-theme-tutorial
+
+EDITOR NOTE: Make sure to run all further commands in this tutorial from inside this project folder.
+
+Clone CAS and checkout the 3.1.4 tag:
+
+	git clone https://github.com/Jasig/cas.git
+	git checkout v3.4.10
+
+Download and extract tomcat tar file:
+
+	curl -0 http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.29/bin/apache-tomcat-6.0.29.tar.gz
+	tar -xvzf apache-tomcat-6.0.29.tar.gz
+	rm -rf apache-tomcat-6.0.29.tar.gz
+
+Build CAS:
+
+	cd cas && mvn package -Dmaven.test.skip=true && cd ..
+
+Copy `cas.war` to the `webapps` directory in tomcat:
+
+	cp cas/cas-server-webapp/target/cas.war apache-tomcat-6.0.29/webapps/
+
+Start the tomcat server:
+
+	./apache-tomcat-6.0.29/bin/startup.sh
+
+Give it 20-30 seconds or so before pointing your browser to `http://localhost:8080/cas`.
+
+If all went well, you should see the main CAS log in screen below.
+
+![Original CAS Log In Screen](../../images/docs/theme_tutorial_default_theme.png)
+
+EDITOR NOTE: Don't worry about the Non-secure Connection warning. HTTPS is a separate subject that we won't be covering here.
+
+### Writing Custom CSS
+
+First, open up the `webapps` directory in a text editor (I'm using TextMate's `mate` utility):
+
+	mate cas/cas-server-webapp/src/main/webapp/
+
+Create a new file called `yale.css` in the CSS directory. This will be our new custom CSS file. (For this tutorial, we'll be writing our new styles on top of the existing CAS styles.)
+
+Inside our new `yale.css` file, copy and paste the following CSS:
+
+	body {
+		background-color: #FAFAE8;
+	}
+	#header h1#app-name {
+   	background-color: #0E4C92;
+	}
+
+Now, open up `WEB-INF/view/jsp/default/ui/includes/top.jsp` and add our yale stylesheet right after the default styesheet:
+
+	<link type="text/css" rel="stylesheet" href="<c:url value="${customCssFile}" />" />
+	<link type="text/css" rel="stylesheet" href="<c:url value="/css/yale.css" />" />
+
+In order to see our changes, we can simply copy our files to tomcat (we don't have to rebuild CAS or restart tomcat for CSS or JSP changes). To copy our files, I like to use `rsync`:
+
+	rsync -ruv cas/cas-server-webapp/src/main/webapp/* apache-tomcat-6.0.29/webapps/cas/
+
+Now, refresh your browser and you should see our new background colors.
+
+![New Background Color](../../images/docs/theme_tutorial_background_colors.png)
+
+### Changing and Adding Text
+
+Let's update the title to read: "Yale University Log In". In `WEB-INF/view/jsp/default/ui/includes/top.jsp`, update the contents of the `h1` tag:
+
+	<h1 id="app-name" class="fl-table-cell">Yale University Log In</h1>
+
+To see the change, copy your files to tomcat and refresh your browser. You should see our new title.
+
+![Updated Title Text](../../images/docs/theme_tutorial_title_text.png)
+
+Let's now add a welcome message to the body copy. Open up the main log in page at `WEB-INF/view/jsp/default/ui/casLoginView.jsp`. On Line 78, you'll find the following paragraph snippet:
+
+	<p class="fl-panel fl-note fl-bevel-white fl-font-size-80"><spring:message code="screen.welcome.security" /></p>
+
+The body copy is being internationalized (i18n), which allows for the support of multiple languages. Take note of the value of the `code` attribute `screen.welcome.security`. The body copy is being referenced from within property files located in `WEB-INF/classes/`. Open up `messages_en.properties` and let's add our welcome message on a new line:
+
+	screen.welcome.yale=Welcome to Yale University CAS Log In!
+
+Also, add the following paragraph snippet to `casLoginView.jsp` right above the other one:
+
+	<p class="fl-panel fl-note fl-bevel-white fl-font-size-80"><spring:message code="screen.welcome.yale" /></p>
+
+Copy your files and refresh your browser as usual. What happens?
+
+CAS is Unavailable!
+
+This is the most generic error page and it's located at `WEB-INF/view/jsp/errors.jsp`. Let's check the log file to see exactly what kind of error this is. Open up `apache-tomcat-6.0.29/logs/catalina.out` and notice the following stack trace:
+
+	2011-11-03 15:58:40,115 ERROR [org.springframework.web.servlet.tags.MessageTag] - <No message found under code 'screen.welcome.yale' for locale 'en_US'.>
+	javax.servlet.jsp.JspTagException: No message found under code 'screen.welcome.yale' for locale 'en_US'.
+	at org.springframework.web.servlet.tags.MessageTag.doStartTagInternal(MessageTag.java:184)
+
+We need to restart the tomcat server in order for our i18n changes to take affect. Let's do that now:
+
+	./apache-tomcat-6.0.29/bin/shutdown.sh && sleep 5 && ./apache-tomcat-6.0.29/bin/startup.sh
+
+Refresh your browser again and you should see our new welcome message.
+
+![Welcome Message](../../images/docs/theme_tutorial_welcome_message.png)
+	
+### Updating the Logo
+
+Run the following command to download a Yale logo into a new `images/yale` directory:
+
+	curl http://www.library.yale.edu/development/resources/images/yale_footer_logo.gif -o cas/cas-server-webapp/src/main/webapp/images/yale/logo.gif --create-dirs
+
+Open our `yale.css` stylesheet and add the following:
+
+	#header {
+		background: #fff url("../images/yale/logo.gif") no-repeat 0 0;
+	}
+
+Don't forget to copy your files to tomcat and refresh your browser. Now, you should see the new logo:
+
+![Updated Logo](../../images/docs/theme_tutorial_logo.png)
+	
