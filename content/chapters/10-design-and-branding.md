@@ -10,15 +10,9 @@ EDITOR NOTE: All the files that we'll be discussing in this section that concern
 
 ## Getting Started
 
-When creating a new theme in CAS, there is not an easy way to preserve existing themes (including the default theme). The problem is specifically with the JSP. There's simply not a system in place to keep all of a specific theme's resources (JSP, in particular) independent of other themes without manually editing hardcoded paths.
-
-So, practically the only approach is to override the existing default theme.
-
-EDITOR NOTE: Although, if your skin does not require changes to the JSP views, you can simply create a new `css` file and point to it from within `WEB-INF/classes/cas-theme-default.properties`
-
 ### CSS
 
-The default styles are all contained in a single file located in `css/cas.css`. This location is set in `WEB-INF/classes/cas-theme-default.properties`. (Ignore the themes folder, for now; it's an unsolved mystery.)
+The default styles are all contained in a single file located in `css/cas.css`. This location is set in `WEB-INF/classes/cas-theme-default.properties`. (Ignore the themes folder, it is a legacy directory and no longer being used.)
 
 The location of the theme's CSS file is configured in 'WEB-INF/classes/cas-theme-default.properties'. If you would like to create your own `css/custom.css` file, for example, you will need to update `standard.custom.css.file`:
 
@@ -30,7 +24,7 @@ CAS uses the [Fluid Skinning System]() CSS framework. More details about FSS can
 
 ### Images
 
-There are 2 `images` folders. Ignore `css/images`, which is designated for the mobile theme. Put your images in `images`.
+There are 2 `images` directories. `css/images` is designated for the mobile theme while `images` for the regular desktop theme.
 
 ### JavaScript
 
@@ -50,7 +44,7 @@ The location of these JSP files are configured in `WEB-INF/classes/default_views
 
 ## Workflow
 
-After you make changes, the quickest way to see the results in a browser is to copy them to tomcat. You do not need to rebuild CAS every time you make a change.
+After you make changes, the quickest way to see the results in a browser is to copy them to tomcat. (You do not need to rebuild CAS every time to see your changes.)
 
 `rsync` is a handy (and powerful) command line utility that is perfect for the job.
 
@@ -97,7 +91,7 @@ Displayed when a user would otherwise have experienced noninteractive single sig
 
 ## Mobile Theme
 
-CAS uses the [Mobile Fluid Skinning System]() to create a separate theme for devices with smaller screens.
+CAS uses the [Mobile Fluid Skinning System]() to create a separate theme for iOS and Android.
 
 Firefox has an extension called [User Agent Switcher]() that can allow you to conveniently experience the mobile theme right in your browser. I've also attached a screenshot below.
 
@@ -115,7 +109,7 @@ In this brief tutorial we'll walk through each step in creating the following mo
 
 ### Initial CAS Setup
 
-*Feel free to follow along. We'll just be working in a single directory that you'll be able to easily delete later.*
+*Feel free to follow along. We'll be working in a single directory that you'll be able to easily delete afterwards.*
 
 First, create a folder to house our new project:
 
@@ -240,4 +234,31 @@ Open our `yale.css` stylesheet and add the following:
 Don't forget to copy your files to tomcat and refresh your browser. Now, you should see the new logo:
 
 ![Updated Logo](../../images/docs/theme_tutorial_logo.png)
+
+That concludes this mini tutorial. For further questions and information feel free to jump on the `#jasig-cas` IRC channel or subscribe to a [mailing list]().
+
+[mailing list]: http://www.jasig.org/cas/mailing-lists
+
+### Supporting Multiple Themes
+
+It is possible to support and maintain multiple themes in CAS. In this section we'll walk through the steps required to create a custom theme next to the CAS default theme.
+
+1. Duplicate the `view/jsp/default` directory renaming it `view/jsp/custom`.
+
+2. Create a new `css/custom.css` file.
+
+3. Duplicate `WEB-INF/classes/default_views.jsp` renaming the file to `custom_views.jsp`. Within our new `custom_views.jsp` file update each path to point to our new `custom` JSP directory created in Step 1.
+
+4. Duplicate `WEB-INF/classes/cas-theme-default.properties` renaming the file to `custom_theme.properties`. Within this file update the value of `standard.custom.css.file` to point to our new `custom.css` file created in Step 2.
+
+At this point, you have successfully duplicated the existing default theme's resources and effectively created a second theme called "custom". 
+
+To change between themes, update the value of the theme and view resolver properties in `cas.properties`:
+
+	cas.themeResolver.defaultThemeName=custom_theme
+	cas.viewResolver.basename=custom_views
+
+WARNING: There are 3 JSP files, `authorizationFailure.jsp`, `brokenContext.jsp`, and `errors.jsp`, that are shared across every theme. These views require manually updating the include paths to reflect the proper theme.
+
+
 	
