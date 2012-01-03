@@ -247,7 +247,7 @@ It is possible to support and maintain multiple themes in CAS. In this section w
 
 2. Create a new `css/custom.css` file.
 
-3. Duplicate `WEB-INF/classes/default_views.jsp` renaming the file to `custom_views.jsp`. Within our new `custom_views.jsp` file update each path to point to our new `custom` JSP directory created in Step 1.
+3. Duplicate `WEB-INF/classes/default_views.properties` renaming the file to `custom_views.properties`. Within our new `custom_views.jsp` file update each path to point to our new `custom` JSP directory created in Step 1.
 
 4. Duplicate `WEB-INF/classes/cas-theme-default.properties` renaming the file to `custom_theme.properties`. Within this file update the value of `standard.custom.css.file` to point to our new `custom.css` file created in Step 2.
 
